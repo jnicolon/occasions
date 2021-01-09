@@ -1,5 +1,6 @@
 .home {
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-size: 100px;
-  font-family: $primary-font;
+  font-family: $secondary-font;
+  letter-spacing: 5px;
 }
