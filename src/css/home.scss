@@ -1,6 +1,74 @@
-.home {
-  text-transform: capitalize;
-  font-size: 100px;
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  height: 80vh;
+}
+
+.home-title {
+  font-size: 7rem;
   font-family: $secondary-font;
-  letter-spacing: 5px;
+  color: $primary;
+}
+
+.home-line {
+  width: 60vw;
+  height: 3px;
+  background-color: $primary;
+}
+
+.home-intro-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 30px;
+  width: 100%;
+}
+
+.home-intro-card-container {
+  height: 300px;
+  width: 250px;
+  @include flex-column-center;
+}
+
+.home-intro-icon {
+  font-size: 3.5rem;
+  color: $primary;
+}
+
+.home-intro-title {
+  font-family: $secondary-font;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  margin: 20px;
+  color: $primary-darker;
+}
+
+.home-intro-text {
+  font-family: $primary-font;
+  text-align: center;
+  color: $primary-dark;
+}
+
+.home-log-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 60px;
+  width: 150px;
+}
+
+.home-log-btn {
+  font-family: $secondary-font;
+  font-size: 1.1rem;
+  color: $primary-dark;
+  transition: all 0.4s;
+  &:hover {
+    color: $primary-darker;
+    font-size: 1.15rem;
+  }
 }

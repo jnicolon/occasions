@@ -1,11 +1,23 @@
-import './App.scss';
+import "./App.scss";
+
+//Components
 import Home from "./pages/Home";
+import Navbar from "./components/navbar/Navbar";
+
+//Router
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      Occasions
-      <Home/>
+    <div>
+      <BrowserRouter>
+        <Navbar />
+        <div className="main-container">
+          <Switch>
+            <Route exact path="/" component={Home} />
+          </Switch>
+        </div>
+      </BrowserRouter>
     </div>
   );
 }

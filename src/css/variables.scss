@@ -25,3 +25,12 @@ $card-bg: var(--white);
 $card-border: #eeeeee;
 $card-hover-bg: #e2e8ee;
 $card-radius: 6px;
+
+$navbar-height: 50px;
+
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
