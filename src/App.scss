@@ -1,4 +1,8 @@
-.App {
-  color: aqua;
-  font-size: 200px;
+@import "./css/variables.scss";
+@import "./css/home.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
