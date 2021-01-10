@@ -1,0 +1,68 @@
+.occ-home-container {
+  width: 100%;
+  height: 100%;
+  @include flex-column-center;
+  padding: 30px;
+}
+
+// .occ-upNext-container {
+//   height: 150px;
+//   width: 600px;
+//   border-radius: 20px;
+//   background-color: $white;
+//   border: 2px solid $light-grey;
+//   //   box-shadow: 5px 5px 15px rgba($color: #000000, $alpha: 0.2);
+//   //   border-radius: 20px;
+// }
+
+.occ-upNext-container {
+  padding: 10px;
+  height: 200px;
+  width: 50vw;
+  background-color: $near-white;
+  @include flex-column-center;
+}
+
+.occ-upNext-icon {
+  font-size: 70px;
+  color: $primary-dark;
+}
+
+.occ-upNext-center {
+  @include flex-row-center;
+  justify-content: space-around;
+  height: 100%;
+  width: 350px;
+}
+
+.occ-upNext-left-container {
+  height: 100%;
+  @include flex-column-center;
+  font-family: $primary-font;
+  color: $dark-grey;
+  h6 {
+    font-size: 1.3rem;
+  }
+}
+
+.occ-upNext-title {
+  font-size: 0.8rem;
+  font-family: $primary-font;
+  background-color: $secondary;
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: $dark-grey;
+}
+
+.occ-upNext-name {
+  font-family: $primary-font;
+  font-size: 2rem;
+  color: $dark-grey;
+  //   background-color: $secondary;
+  //   padding: 5px 10px;
+  //   border-radius: 10px;
+}
+
+.occ-upNext-gift-txt {
+  color: $mid-grey;
+}
