@@ -324,6 +324,139 @@
   margin-bottom: 20px;
 }
 
+.occ-home-container {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 30px;
+}
+
+.occ-upNext-container {
+  padding: 10px;
+  height: 200px;
+  width: 50vw;
+  background-color: #fcfcfc;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.occ-upNext-icon {
+  font-size: 70px;
+  color: #00a5a5;
+}
+
+.occ-upNext-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 100%;
+  width: 350px;
+}
+
+.occ-upNext-left-container {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #333333;
+}
+
+.occ-upNext-left-container h6 {
+  font-size: 1.3rem;
+}
+
+.occ-upNext-title {
+  font-size: 0.8rem;
+  font-family: "Source Sans Pro", sans-serif;
+  background-color: #ffd100;
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: #333333;
+}
+
+.occ-upNext-name {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 2rem;
+  color: #333333;
+}
+
+.occ-upNext-gift-txt {
+  color: #666666;
+}
+
+.occ-list-container {
+  border: 1px solid forestgreen;
+  width: 50vw;
+  height: 100px;
+  margin-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.occ-list-title-containe h2 {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;

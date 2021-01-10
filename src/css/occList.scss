@@ -1,5 +1,99 @@
 .occ-list-container {
-  border: 1px solid forestgreen;
-  width: 100px;
+  width: 50vw;
   height: 100px;
+  margin-top: 30px;
+  @include flex-column-center;
+  justify-content: flex-start;
+}
+
+.occ-list-title-container {
+  width: 100%;
+  padding: 5px;
+
+  h2 {
+    font-family: $primary-font;
+    font-size: 1rem;
+    text-align: center;
+    color: $primary-dark;
+    font-weight: 500;
+  }
+}
+
+.occ-list-selectors-container {
+  @include flex-row-center;
+  height: 40px;
+  justify-content: space-evenly;
+  width: 100%;
+  border-top: 1px solid $primary;
+  border-bottom: 1px solid $primary;
+  margin-top: 5px;
+}
+
+.occ-list-btn-container {
+  width: 100%;
+  height: 100%;
+  @include flex-column-center;
+  transition: all 0.3s;
+  h6 {
+    font-size: 0.8rem;
+    color: $mid-grey;
+  }
+  &:hover {
+    background-color: $off-white;
+  }
+}
+
+.occ-list-item-container {
+  height: 40px;
+  width: 100%;
+  background-color: $near-white;
+  margin-top: 15px;
+  transition: all 0.2s;
+  @include flex-row-center;
+  h6 {
+    color: $mid-grey;
+    font-size: 0.7rem;
+  }
+  &:hover {
+    box-shadow: 5px 5px 5px rgba($color: #000000, $alpha: 0.2);
+  }
+}
+
+.occ-list-single-item-container {
+  height: 40px;
+  width: 100%;
+  background-color: $near-white;
+  margin-top: 5px;
+  @include flex-row-center;
+}
+
+.occ-list-present-icon {
+  font-size: 30px;
+  color: $primary-dark;
+}
+
+.present-icon-container {
+  position: relative;
+}
+
+.present-icon-status {
+  position: fixed;
+  padding: 5px;
+  //   border: 1px solid $dark-grey;
+  background-color: $secondary;
+  border-radius: 5px;
+  opacity: 0;
+  transition: all 0.3s;
+  box-shadow: 3px 3px 3px rgba($color: #000000, $alpha: 0.2);
+}
+
+.present-icon-status-on {
+  display: block;
+  opacity: 1;
+}
+
+.present-cancel-icon {
+  position: absolute;
+  top: 20px;
+  left: 25px;
 }
