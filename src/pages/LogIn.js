@@ -37,7 +37,7 @@ function LogIn() {
 
   const submitForm = (e) => {
     e.preventDefault();
-    console.log("click");
+
     const reg = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     if (!reg.test(eMail)) {
       setEMailError(true);
@@ -95,7 +95,7 @@ function LogIn() {
           >
             User doesn't exist
           </p>
-          <div className="auth-input-inner-container">
+          <div className="auth-input-inner-container auth-bot">
             <BtnTemplate func={submitForm} text="Log In" />
           </div>
         </form>

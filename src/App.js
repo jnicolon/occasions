@@ -1,14 +1,11 @@
 import "./App.scss";
-
-//Components
-import Home from "./pages/Home";
-import Navbar from "./components/navbar/Navbar";
-
-//Router
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-//Pages
+//Router
+import Home from "./pages/Home";
+import Navbar from "./components/navbar/Navbar";
 import LogIn from "./pages/LogIn";
+import SignUp from "./pages/SignUp";
 
 function App() {
   return (
@@ -19,6 +16,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/login" component={LogIn} />
+            <Route path="/signup" component={SignUp} />
           </Switch>
         </div>
       </BrowserRouter>

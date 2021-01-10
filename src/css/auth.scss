@@ -46,6 +46,9 @@
   padding: 10px;
   margin: 3px;
   border: 1px solid $primary-dark;
+  &:focus {
+    outline: none;
+  }
 }
 
 .auth-input-inner-container {
@@ -53,10 +56,14 @@
   label {
     color: $primary-darker;
   }
-  margin: 20px;
+  margin: 10px;
 }
 
 .auth-error-txt {
   font-size: 0.8rem;
   color: $red;
+}
+
+.auth-bot {
+  margin-bottom: 20px;
 }
