@@ -1,11 +1,32 @@
 @import "./css/variables.scss";
 @import "./css/navbar.scss";
 @import "./css/home.scss";
+@import "./css/auth.scss";
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+input {
+  &:focus {
+    border: none;
+  }
+}
+
+button {
+  outline: none;
+  border: none;
+  text-decoration: none;
+  &:active {
+    box-shadow: none;
+    transform: none;
+  }
+  &:focus {
+    border: none;
+    outline: none;
+  }
 }
 
 body {
@@ -27,5 +48,4 @@ a {
   justify-content: center;
   flex-direction: column;
   position: relative;
-  top: $navbar-height;
 }

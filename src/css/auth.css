@@ -1,0 +1,11 @@
+.auth-container {
+  width: 100vw;
+  height: 70vh;
+}
+
+.auth-input-container {
+  width: 400px;
+  height: 600px;
+  border: 1px solid red;
+}
+/*# sourceMappingURL=auth.css.map */

@@ -1,0 +1,62 @@
+.auth-container {
+  width: 100vw;
+  height: 70vh;
+  @include flex-column-center;
+}
+
+.auth-input-container {
+  width: 400px;
+  border: 3px solid $primary;
+  border-radius: 20px;
+  @include flex-column-center;
+  justify-content: flex-start;
+  font-family: $primary-font;
+}
+
+.auth-title-container {
+  @include flex-column-center;
+  justify-content: flex-start;
+  padding: 20px;
+
+  width: 100%;
+}
+
+.auth-icon {
+  font-size: 35px;
+  color: $primary;
+}
+
+.auth-title {
+  font-family: $secondary-font;
+  text-transform: capitalize;
+  font-size: 1.3rem;
+  color: $primary;
+  position: relative;
+}
+
+.auth-form {
+  @include flex-column-center;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.auth-text-input {
+  color: $primary-darker;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 3px;
+  border: 1px solid $primary-dark;
+}
+
+.auth-input-inner-container {
+  @include flex-column-center;
+  label {
+    color: $primary-darker;
+  }
+  margin: 20px;
+}
+
+.auth-error-txt {
+  font-size: 0.8rem;
+  color: $red;
+}

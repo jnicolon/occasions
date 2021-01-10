@@ -20,10 +20,10 @@ function Home() {
       </div>
       <div className="home-line"></div>
       <div className="home-log-container">
-        <Link>
+        <Link to="/login">
           <h2 className="home-log-btn">Log In</h2>
         </Link>
-        <Link>
+        <Link to="/signup">
           <h2 className="home-log-btn">Sign Up</h2>
         </Link>
       </div>
