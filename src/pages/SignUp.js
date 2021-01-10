@@ -17,10 +17,10 @@ function SignUp() {
   const [eMail, setEMail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [firstNameError, setFirstNameError] = useState(false);
-  const [lastNameError, setLastNameError] = useState(false);
-  const [eMailError, setEMailError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
+  const [firstNameError, setFirstNameError] = useState("");
+  const [lastNameError, setLastNameError] = useState("");
+  const [eMailError, setEMailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
   const handleChange = (e) => {
     console.log(e.target.value.trim().length, e.target.name);

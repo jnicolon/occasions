@@ -207,7 +207,6 @@
 
 .auth-input-container {
   width: 400px;
-  border: 3px solid #00cccc;
   border-radius: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -226,6 +225,8 @@
       -ms-flex-pack: start;
           justify-content: flex-start;
   font-family: "Source Sans Pro", sans-serif;
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
 }
 
 .auth-title-container {
@@ -290,7 +291,7 @@
 }
 
 .auth-text-input:focus {
-  border: none;
+  outline: none;
 }
 
 .auth-input-inner-container {
@@ -317,6 +318,10 @@
 .auth-error-txt {
   font-size: 0.8rem;
   color: #ff0000;
+}
+
+.auth-bot {
+  margin-bottom: 20px;
 }
 
 * {

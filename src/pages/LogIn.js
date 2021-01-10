@@ -12,8 +12,8 @@ import BtnTemplate from "../components/navbar/BtnTemplate.js";
 function LogIn() {
   const [eMail, setEMail] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordError, setPasswordError] = useState(false);
-  const [eMailError, setEMailError] = useState(false);
+  const [passwordError, setPasswordError] = useState("");
+  const [eMailError, setEMailError] = useState("");
   // const [logInError, setLogInError] = useState(false);
 
   // const firebase = useFirebase();
@@ -21,14 +21,23 @@ function LogIn() {
   // const loggedIn = useSelector((state) => state.auth.loggedIn);
 
   const handleChange = (e) => {
-    switch (e.target.type) {
+    switch (e.target.name) {
       case "password":
-        setPasswordError(false);
         setPassword(e.target.value);
+        if (password.trim().length < 6) {
+          setPasswordError(true);
+        } else {
+          setPasswordError(false);
+        }
         break;
       case "email":
-        setEMailError(false);
         setEMail(e.target.value);
+        const reg = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        if (!reg.test(eMail)) {
+          setEMailError(true);
+        } else {
+          setEMailError(false);
+        }
         break;
       default:
         break;
@@ -37,14 +46,6 @@ function LogIn() {
 
   const submitForm = (e) => {
     e.preventDefault();
-
-    const reg = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    if (!reg.test(eMail)) {
-      setEMailError(true);
-    }
-    if (password.trim().length < 5) {
-      setPasswordError(true);
-    }
     if (!passwordError && !eMailError) {
       console.log("submited");
     }
@@ -63,6 +64,7 @@ function LogIn() {
             <input
               onChange={handleChange}
               className="auth-text-input"
+              name="email"
               type="email"
               value={eMail}
             ></input>
@@ -78,6 +80,7 @@ function LogIn() {
             <input
               onChange={handleChange}
               className="auth-text-input"
+              name="password"
               type="password"
               value={password}
             ></input>
