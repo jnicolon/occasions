@@ -32,8 +32,8 @@
 }
 
 .navbar-icon {
-  font-size: 1.6rem;
-  margin: 5px;
+  font-size: 1.8rem;
+  margin: 8px;
   color: $primary;
 }
 
@@ -54,4 +54,24 @@
   font-family: $primary-font;
   text-transform: uppercase;
   font-weight: 600;
+}
+
+.nav-cart-icon-container {
+  height: 100%;
+  position: relative;
+}
+
+.nav-cart-number {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  align-items: center;
+  top: -5px;
+  left: 25px;
+  background-color: $primary;
+  padding: 5px;
+  border-radius: 50%;
+  color: white;
+  font-weight: 500;
+  @include flex-row-center;
 }

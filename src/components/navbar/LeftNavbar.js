@@ -6,12 +6,16 @@ import React from "react";
 // import { useSelector } from "react-redux";
 
 //Components
-import LogInBtn from "./LogInBtn";
+import ProfileBtn from "./ProfileBtn";
+import CartBtn from "./CartBtn";
+import AddBtn from "./AddBtn";
 
 function LeftNavbar() {
   return (
     <div className="left-navbar-container">
-      <LogInBtn />
+      <AddBtn />
+      <CartBtn />
+      <ProfileBtn />
     </div>
   );
 }
