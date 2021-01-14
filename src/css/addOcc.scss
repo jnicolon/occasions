@@ -8,12 +8,12 @@
 }
 
 .add-occ-container {
-  width: 400px;
+  width: 350px;
   padding: 20px;
-  height: 250px;
+  height: 375px;
   border-radius: 20px;
   @include flex-column-center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   font-family: $primary-font;
   box-shadow: 0px 0px 5px rgba($color: #000000, $alpha: 0.3);
 }
@@ -28,6 +28,7 @@
   font-size: 1.3rem;
   color: $primary;
   position: relative;
+  text-align: center;
 }
 
 .add-occ-form {
@@ -44,4 +45,46 @@
   background-color: $white;
   font-family: $secondary-font;
   font-size: 15px;
+}
+
+.add-occ-error-txt {
+  margin-top: 5px;
+  color: red;
+  text-align: center;
+}
+
+.add-occ-btn-container {
+  padding: 6px 15px;
+  background-color: $primary-dark;
+  border-radius: 10px;
+  transition: all 0.3s;
+  color: $near-white;
+  margin: 15px;
+
+  &:hover {
+    background-color: $secondary;
+    color: $black;
+  }
+}
+
+.add-occ-btn-text {
+  font-family: $primary-font;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.add-occ-txt-input {
+  width: 200px;
+  padding: 10px 10px;
+  border: 1px solid $primary;
+  border-radius: 10px;
+  background-color: $white;
+  font-family: $secondary-font;
+  font-size: 15px;
+}
+
+.add-occ-sub-title {
+  text-align: center;
+  color: $dark-grey;
 }

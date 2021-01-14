@@ -171,13 +171,7 @@ function SignUp() {
               Your password must be at least six characters long
             </p>
           </div>
-          <p
-            style={{ opacity: "1" }}
-            // style={loginError ? { opacity: "1" } : { opacity: "0" }}
-            className="auth-error-txt"
-          >
-            User doesn't exist
-          </p>
+
           <div className="auth-input-inner-container auth-bot">
             <BtnTemplate text="Log In" />
           </div>

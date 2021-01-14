@@ -72,11 +72,9 @@ function AddOccasion() {
   const nextSlide = (value) => {
     if (value.trim().length < 1) {
       setError(true);
-      console.log("trim - trim");
     } else {
       setSlide((slide) => slide + 1);
       setError(false);
-      console.log("click");
     }
   };
 

@@ -23,30 +23,36 @@ function addOccSlide4(props) {
         <h1 className="add-occ-title">
           What's the email of the special someone?
         </h1>
-        <input
-          className="add-event-txt-input"
-          type="text"
-          value={occEmail}
-          onChange={handleChange}
-          name="email"
-        ></input>
-        {error && (
-          <p className="add-occ-slide-error-txt">That's not a valid email!</p>
-        )}
+        <div>
+          <input
+            className="add-occ-txt-input"
+            type="text"
+            value={occEmail}
+            onChange={handleChange}
+            name="email"
+          ></input>
+
+          <p
+            className="add-occ-error-txt"
+            style={error ? { opacity: 1 } : { opacity: 0 }}
+          >
+            That's not a valid email!
+          </p>
+        </div>
         <div>
           <button
             type="button"
-            className="btn-template-container"
+            className="add-occ-btn-container"
             onClick={prevSlide}
           >
-            <p className="btn-template-text">Prev slide</p>
+            <p className="add-occ-btn-text">Prev slide</p>
           </button>
           <button
             type="submit"
-            className="btn-template-container"
+            className="add-occ-btn-container"
             onClick={() => handleSubmit(occEmail)}
           >
-            <p className="btn-template-text">Next Slide</p>
+            <p className="add-occ-btn-text">Next Slide</p>
           </button>
         </div>
       </form>

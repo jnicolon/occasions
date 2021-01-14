@@ -11,6 +11,17 @@ function addOccSlide3(props) {
     error,
     dateError,
   } = props;
+
+  const errorTxt = () => {
+    if (error) {
+      return "Field can't be empty!";
+    } else if (dateError) {
+      return "The date must be in the future";
+    } else {
+      return "Placeholder text";
+    }
+  };
+
   return (
     <div
       className={
@@ -21,33 +32,36 @@ function addOccSlide3(props) {
     >
       <form onSubmit={(e) => e.preventDefault()} className="add-occ-form">
         <h1 className="add-occ-title">What's the date of the occassion?</h1>
-        <input
-          name="date"
-          className="add-event-txt-input"
-          type="date"
-          value={occDate}
-          onChange={handleChange}
-        ></input>
-        {error && (
-          <p className="add-occ-slide-error-txt">Field can't be empty!</p>
-        )}
-        {dateError && (
-          <p className="add-occ-slide-error-txt">Date can't be in the past</p>
-        )}
+        <div>
+          <input
+            name="date"
+            className="add-occ-txt-input"
+            type="date"
+            value={occDate}
+            onChange={handleChange}
+          ></input>
+
+          <p
+            className="add-occ-error-txt"
+            style={error || dateError ? { opacity: 1 } : { opacity: 0 }}
+          >
+            {errorTxt()}
+          </p>
+        </div>
         <div>
           <button
             type="button"
-            className="btn-template-container"
+            className="add-occ-btn-container"
             onClick={prevSlide}
           >
             <p className="btn-template-text">Prev slide</p>
           </button>
           <button
             type="submit"
-            className="btn-template-container"
+            className="add-occ-btn-container"
             onClick={() => checkDate()}
           >
-            <p className="btn-template-text">Next Slide</p>
+            <p className="add-occ-btn-text">Next Slide</p>
           </button>
         </div>
       </form>

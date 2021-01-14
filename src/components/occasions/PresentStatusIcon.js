@@ -30,8 +30,6 @@ function PresentStatusIcon() {
     setIconDisplayStatus((iconDisplayStatus) => !iconDisplayStatus);
   };
 
-  console.log(style);
-
   return (
     <div
       style={{ position: "relative" }}
