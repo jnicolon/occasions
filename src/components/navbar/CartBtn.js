@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 function CartBtn() {
   const currentCart = [0, 1, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
-    <Link>
+    <Link to="/">
       <span className="nav-cart-icon-container">
         <AiOutlineShoppingCart className="navbar-icon" />
         {currentCart.length === 0 ? null : (

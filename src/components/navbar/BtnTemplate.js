@@ -1,12 +1,8 @@
 import React from "react";
 
-function BtnTemplate({ text, func }) {
+function BtnTemplate({ text, onClick }) {
   return (
-    <button
-      type="submit"
-      onClick={(e) => func(e)}
-      className="btn-template-container"
-    >
+    <button onClick={onClick} className="btn-template-container">
       <p className="btn-template-text">{text}</p>
     </button>
   );

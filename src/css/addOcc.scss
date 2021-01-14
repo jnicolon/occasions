@@ -1,0 +1,47 @@
+.add-occ-main-container {
+  width: 100vw;
+  height: 70vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-occ-container {
+  width: 400px;
+  padding: 20px;
+  height: 250px;
+  border-radius: 20px;
+  @include flex-column-center;
+  justify-content: space-around;
+  font-family: $primary-font;
+  box-shadow: 0px 0px 5px rgba($color: #000000, $alpha: 0.3);
+}
+
+.add-occ-container-none {
+  display: none;
+}
+
+.add-occ-title {
+  font-family: $secondary-font;
+  text-transform: capitalize;
+  font-size: 1.3rem;
+  color: $primary;
+  position: relative;
+}
+
+.add-occ-form {
+  @include flex-column-center;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.add-occ-select-occasion {
+  width: 200px;
+  padding: 10px 10px;
+  border: 1px solid $primary;
+  border-radius: 10px;
+  background-color: $white;
+  font-family: $secondary-font;
+  font-size: 15px;
+}

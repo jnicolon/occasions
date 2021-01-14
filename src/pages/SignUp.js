@@ -7,6 +7,9 @@ import { FiUser } from "react-icons/fi";
 //Components
 import BtnTemplate from "../components/navbar/BtnTemplate.js";
 
+//Functions
+import isEmailValid from "../functions/isEmailValid";
+
 // import { useFirestore, useFirebase } from "react-redux-firebase";
 // import { useSelector } from "react-redux";
 // import { Redirect } from "react-router-dom";
@@ -51,12 +54,14 @@ function SignUp() {
         break;
       case "email":
         setEMail(e.target.value);
-        const reg = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        if (!reg.test(eMail)) {
-          setEMailError(true);
-        } else {
-          setEMailError(false);
-        }
+        setEMailError(isEmailValid(e.target.value));
+
+        // const reg = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        // if (!reg.test(eMail)) {
+        //   setEMailError(true);
+        // } else {
+        //   setEMailError(false);
+        // }
         break;
       default:
         break;
@@ -101,7 +106,7 @@ function SignUp() {
           <FiUser className="auth-icon" />
           <h1 className="auth-title">Log In</h1>
         </div>
-        <form className="auth-form">
+        <form onSubmit={submitForm} className="auth-form">
           <div className="auth-input-inner-container">
             <label>First Name</label>
             <input
@@ -174,7 +179,7 @@ function SignUp() {
             User doesn't exist
           </p>
           <div className="auth-input-inner-container auth-bot">
-            <BtnTemplate func={submitForm} text="Log In" />
+            <BtnTemplate text="Log In" />
           </div>
         </form>
       </div>
