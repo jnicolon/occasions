@@ -12,6 +12,7 @@ import OccasionPage from "./pages/OccasionPage";
 import GiftsPage from "./pages/GiftsPage";
 import SingleCardPage from "./pages/SingleCardPage";
 import CartPage from "./pages/CartPage";
+import ScheduledPage from "./pages/ScheduledPage";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="/giftspage" component={GiftsPage} />
             <Route path="/singlecardpage" component={SingleCardPage} />
             <Route path="/cartpage" component={CartPage} />
+            <Route path="/scheduledpage" component={ScheduledPage} />
           </Switch>
         </div>
       </BrowserRouter>
