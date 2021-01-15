@@ -84,6 +84,22 @@
   font-size: 0.7rem;
 }
 
+.single-card-page-container {
+  position: relative;
+
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.single-card-page-img {
+  box-shadow: rgb(105, 105, 105) -0px 0px 20px;
+  margin: 0px 0px 30px 0px;
+  width: 300px;
+}
+
 @media screen and (max-width: 600px) {
   .gift-page-cards-container {
     width: auto;

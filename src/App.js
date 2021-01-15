@@ -10,6 +10,7 @@ import UserHome from "./pages/UserHome";
 import AddOccasion from "./pages/AddOccasion";
 import OccasionPage from "./pages/OccasionPage";
 import GiftsPage from "./pages/GiftsPage";
+import SingleCardPage from "./pages/SingleCardPage";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/addoccasion" component={AddOccasion} />
             <Route path="/occasionpage" component={OccasionPage} />
             <Route path="/giftspage" component={GiftsPage} />
+            <Route path="/singlecardpage" component={SingleCardPage} />
           </Switch>
         </div>
       </BrowserRouter>
