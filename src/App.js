@@ -9,6 +9,7 @@ import SignUp from "./pages/SignUp";
 import UserHome from "./pages/UserHome";
 import AddOccasion from "./pages/AddOccasion";
 import OccasionPage from "./pages/OccasionPage";
+import GiftsPage from "./pages/GiftsPage";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/userhome" component={UserHome} />
             <Route path="/addoccasion" component={AddOccasion} />
             <Route path="/occasionpage" component={OccasionPage} />
+            <Route path="/giftspage" component={GiftsPage} />
           </Switch>
         </div>
       </BrowserRouter>

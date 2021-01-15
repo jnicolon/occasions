@@ -1,0 +1,113 @@
+.gift-page-container {
+  position: relative;
+  top: var(--nav-height);
+  height: 100%;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gift-page-title {
+  border-radius: 20px;
+  padding: 30px;
+  color: $mid-grey;
+  text-align: center;
+
+  h2 {
+    font-size: 1.5rem;
+    font-family: $secondary-font;
+  }
+  h1 {
+    font-family: $tertiary-font;
+    font-size: 5rem;
+    color: $dark-grey;
+    background-color: $secondary;
+    padding: 10px;
+    width: 50vw;
+    margin-top: 20px;
+  }
+}
+
+.gift-page-cards-container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 200px);
+  grid-gap: 20px;
+  padding: 20px;
+}
+
+.single-card-container {
+  width: 200px;
+  height: 300px;
+  border: var(--primary-border) solid 1px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  position: relative;
+  top: 0px;
+  &:hover {
+    position: relative;
+    top: -10px;
+    background-color: var(--single-card-image-bg-color);
+    border: var(--single-card-image-bg-color) 1px solid;
+    box-shadow: rgb(105, 105, 105) -0px 0px 10px;
+  }
+}
+
+.single-card-image {
+  width: 150px;
+  height: 200px;
+  border: rgb(174, 195, 253) 1px solid;
+  margin-top: 20px;
+  background-color: white;
+}
+
+.single-card-txt-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.single-card-name {
+  font-size: 1rem;
+}
+.single-card-author {
+  font-size: 0.7rem;
+}
+
+@media screen and (max-width: 600px) {
+  .gift-page-cards-container {
+    width: auto;
+    margin: auto;
+  }
+
+  /* .single-card-container {
+      border: none;
+      background-color: var(--background-gray);
+      height: 200px;
+    }
+  
+    .single-card-container:hover {
+      position: relative;
+      top: 0px;
+      background-color: transparent;
+      border: none;
+      box-shadow: none;
+    }
+  
+    .single-card-image {
+      width: 100px;
+      height: 150px;
+      margin-bottom: 10px;
+      box-shadow: rgb(202, 202, 202) -0px 0px 10px;
+    } */
+}
