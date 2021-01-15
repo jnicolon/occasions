@@ -37,25 +37,6 @@
   color: $primary;
 }
 
-.btn-template-container {
-  padding: 10px 30px;
-  background-color: $primary-dark;
-  border-radius: 10px;
-  transition: all 0.3s;
-  color: $near-white;
-
-  &:hover {
-    background-color: $secondary;
-    color: $black;
-  }
-}
-
-.btn-template-text {
-  font-family: $primary-font;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
 .nav-cart-icon-container {
   height: 100%;
   position: relative;

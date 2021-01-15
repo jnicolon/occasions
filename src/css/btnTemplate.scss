@@ -1,0 +1,39 @@
+.btn-template-container {
+  padding: 10px 30px;
+  background-color: $primary-dark;
+  border-radius: 10px;
+  transition: all 0.3s;
+  color: $near-white;
+
+  &:hover {
+    background-color: $secondary;
+    color: $black;
+  }
+}
+
+.btn-template-text {
+  font-family: $primary-font;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.btn-template-text-sm {
+  font-family: $primary-font;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.btn-template-container-sm {
+  padding: 6px 15px;
+  background-color: $primary-dark;
+  border-radius: 10px;
+  transition: all 0.3s;
+  color: $near-white;
+  margin: 15px;
+
+  &:hover {
+    background-color: $secondary;
+    color: $black;
+  }
+}

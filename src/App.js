@@ -11,6 +11,7 @@ import AddOccasion from "./pages/AddOccasion";
 import OccasionPage from "./pages/OccasionPage";
 import GiftsPage from "./pages/GiftsPage";
 import SingleCardPage from "./pages/SingleCardPage";
+import CartPage from "./pages/CartPage";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/occasionpage" component={OccasionPage} />
             <Route path="/giftspage" component={GiftsPage} />
             <Route path="/singlecardpage" component={SingleCardPage} />
+            <Route path="/cartpage" component={CartPage} />
           </Switch>
         </div>
       </BrowserRouter>
