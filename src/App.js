@@ -17,7 +17,7 @@ import ScheduledPage from "./pages/ScheduledPage";
 function App() {
   return (
     <div>
-      <HashRouter>
+      <HashRouter basename="/">
         <Navbar />
         <div className="main-container">
           <Switch>
