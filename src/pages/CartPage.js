@@ -10,39 +10,39 @@ import { Link } from "react-router-dom";
 
 function CartPage() {
   const [currentCart, setCurrentCart] = useState([
-    {
-      card: {
-        cardName: "Birthday",
-        url:
-          "https://firebasestorage.googleapis.com/v0/b/thoughtfulv3.appspot.com/o/cards%2Fbirthday%2Fbirthday_4.png?alt=media&token=c322743c-d7b9-4c86-aef9-71634b2d7b59",
-      },
-      currentOccasion: {
-        occName: "Maria",
-        occasion: "Birthday",
-      },
-    },
-    {
-      card: {
-        cardName: "Birthday",
-        url:
-          "https://firebasestorage.googleapis.com/v0/b/thoughtfulv3.appspot.com/o/cards%2Fbirthday%2Fbirthday_4.png?alt=media&token=c322743c-d7b9-4c86-aef9-71634b2d7b59",
-      },
-      currentOccasion: {
-        occName: "Maria",
-        occasion: "Birthday",
-      },
-    },
-    {
-      card: {
-        cardName: "Birthday",
-        url:
-          "https://firebasestorage.googleapis.com/v0/b/thoughtfulv3.appspot.com/o/cards%2Fbirthday%2Fbirthday_4.png?alt=media&token=c322743c-d7b9-4c86-aef9-71634b2d7b59",
-      },
-      currentOccasion: {
-        occName: "Maria",
-        occasion: "Birthday",
-      },
-    },
+    // {
+    //   card: {
+    //     cardName: "Birthday",
+    //     url:
+    //       "https://firebasestorage.googleapis.com/v0/b/thoughtfulv3.appspot.com/o/cards%2Fbirthday%2Fbirthday_4.png?alt=media&token=c322743c-d7b9-4c86-aef9-71634b2d7b59",
+    //   },
+    //   currentOccasion: {
+    //     occName: "Maria",
+    //     occasion: "Birthday",
+    //   },
+    // },
+    // {
+    //   card: {
+    //     cardName: "Birthday",
+    //     url:
+    //       "https://firebasestorage.googleapis.com/v0/b/thoughtfulv3.appspot.com/o/cards%2Fbirthday%2Fbirthday_4.png?alt=media&token=c322743c-d7b9-4c86-aef9-71634b2d7b59",
+    //   },
+    //   currentOccasion: {
+    //     occName: "Maria",
+    //     occasion: "Birthday",
+    //   },
+    // },
+    // {
+    //   card: {
+    //     cardName: "Birthday",
+    //     url:
+    //       "https://firebasestorage.googleapis.com/v0/b/thoughtfulv3.appspot.com/o/cards%2Fbirthday%2Fbirthday_4.png?alt=media&token=c322743c-d7b9-4c86-aef9-71634b2d7b59",
+    //   },
+    //   currentOccasion: {
+    //     occName: "Maria",
+    //     occasion: "Birthday",
+    //   },
+    // },
   ]);
 
   //   useFirestoreConnect(["cart"]);

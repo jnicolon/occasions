@@ -12,7 +12,6 @@ import OccasionPage from "./pages/OccasionPage";
 import GiftsPage from "./pages/GiftsPage";
 import SingleCardPage from "./pages/SingleCardPage";
 import CartPage from "./pages/CartPage";
-import ScheduledPage from "./pages/ScheduledPage";
 
 function App() {
   return (
@@ -22,6 +21,7 @@ function App() {
         <div className="main-container">
           <Switch>
             <Route exact path="/" component={Home} />
+<<<<<<< HEAD
             <Route exact path="/login" component={LogIn} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/userhome" component={UserHome} />
@@ -31,6 +31,16 @@ function App() {
             <Route exact path="/singlecardpage" component={SingleCardPage} />
             <Route exact path="/cartpage" component={CartPage} />
             <Route exact path="/scheduledpage" component={ScheduledPage} />
+=======
+            <Route path="/login" component={LogIn} />
+            <Route path="/signup" component={SignUp} />
+            <Route path="/userhome" component={UserHome} />
+            <Route path="/addoccasion" component={AddOccasion} />
+            <Route path="/occasionpage" component={OccasionPage} />
+            <Route path="/giftspage" component={GiftsPage} />
+            <Route path="/singlecardpage" component={SingleCardPage} />
+            <Route path="/cartpage" component={CartPage} />
+>>>>>>> parent of a1953ba... scheduled page
           </Switch>
         </div>
       </HashRouter>
