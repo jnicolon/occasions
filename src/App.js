@@ -31,8 +31,15 @@ import ScheduledPage from "./pages/ScheduledPage";
 import { toggleProfileModal } from "./redux/actions/modalActions";
 
 function App() {
+  const profileBtnModalStatus = useSelector((state) => state.modal.profileBtn);
   const firebase = useFirebase();
   const dispatch = useDispatch();
+
+  const handleModal = (e) => {
+    if (profileBtnModalStatus) {
+      dispatch(toggleProfileModal());
+    }
+  };
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
@@ -45,7 +52,7 @@ function App() {
   });
 
   return (
-    <div>
+    <div onClick={(e) => handleModal(e)}>
       <HashRouter basename="/">
         <Navbar />
         <div className="main-container">

@@ -1,26 +1,21 @@
 import React from "react";
-import { useState } from "react";
-
 import { FiUser } from "react-icons/fi";
 import { Link } from "react-router-dom";
-
-// import LogoutBtn from "./LogoutBtn";
-// import { useSelector, useDispatch } from "react-redux";
-
-// import { toggleProfileModal } from "../../redux/actions/modalActions";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleProfileModal } from "../../redux/actions/modalActions";
+import LogoutBtn from "./LogoutBtn";
 
 function ProfileBtn() {
-  // const dispatch = useDispatch();
-  // const display = useSelector((state) => state.modal.profileBtn);
+  const dispatch = useDispatch();
+  const display = useSelector((state) => state.modal.profileBtn);
 
-  const [display, useDisplay] = useState(false);
   return (
     <div className="profile-btn-container">
       <div
         className="icon profile-btn account-icon"
-        // onClick={() => {
-        //   dispatch(toggleProfileModal(true));
-        // }}
+        onClick={() => {
+          dispatch(toggleProfileModal(true));
+        }}
       >
         <FiUser size={32} />
       </div>
@@ -32,7 +27,7 @@ function ProfileBtn() {
         }}
         className="profile-btn-popup"
       >
-        <Link to="/eventpage">
+        <Link to="/userhome">
           <h3 className="profile-btn-popup-txt">Occasion List</h3>
         </Link>
         <Link to="/scheduledpage">
@@ -41,7 +36,7 @@ function ProfileBtn() {
         <Link to="/cartpage">
           <h3 className="profile-btn-popup-txt">Cart</h3>
         </Link>
-        {/* <LogoutBtn /> */}
+        <LogoutBtn />
       </div>
     </div>
   );

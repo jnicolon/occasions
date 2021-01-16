@@ -1,16 +1,22 @@
 import React from "react";
 
+//State
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
+//Components
 import { FiUser } from "react-icons/fi";
 import BtnTemplate from "../components/navbar/BtnTemplate.js";
+import AuthTitle from "../components/auth/AuthTitle";
 
+//Functions
 import isEmailValid from "../functions/isEmailValid";
 
+//Firebase
 import { useFirebase } from "react-redux-firebase";
 
-import { Redirect } from "react-router-dom";
+//Router
+import { Link, Redirect } from "react-router-dom";
 
 function LogIn() {
   const [eMail, setEMail] = useState("");
@@ -60,58 +66,64 @@ function LogIn() {
   };
 
   return (
-    <div className="auth-container">
-      {loggedIn && <Redirect to="/userhome" />}
-      <div className="auth-input-container">
-        <div className="auth-title-container">
-          <FiUser className="auth-icon" />
-          <h1 className="auth-title">Log In</h1>
+    <>
+      <AuthTitle />
+      <div className="auth-container">
+        {loggedIn && <Redirect to="/userhome" />}
+        <div className="auth-input-container">
+          <div className="auth-title-container">
+            <FiUser className="auth-icon" />
+            <h1 className="auth-title">Log In</h1>
+          </div>
+          <form onSubmit={submitForm} className="auth-form">
+            <div className="auth-input-inner-container">
+              <label>E-mail</label>
+              <input
+                onChange={handleChange}
+                className="auth-text-input"
+                name="email"
+                type="email"
+                value={eMail}
+              ></input>
+              <p
+                style={eMailError ? { opacity: "1" } : { opacity: "0" }}
+                className="auth-error-txt"
+              >
+                You must enter a valid e-mail
+              </p>
+            </div>
+            <div className="auth-input-inner-container">
+              <label>Password</label>
+              <input
+                onChange={handleChange}
+                className="auth-text-input"
+                name="password"
+                type="password"
+                value={password}
+              ></input>
+              <p
+                style={passwordError ? { opacity: "1" } : { opacity: "0" }}
+                className="auth-error-txt"
+              >
+                Your password must be at least six characters long
+              </p>
+            </div>
+            <p
+              style={logInError ? { opacity: "1" } : { opacity: "0" }}
+              className="auth-error-txt"
+            >
+              User doesn't exist
+            </p>
+            <div className="auth-input-inner-container auth-bot">
+              <BtnTemplate text="Log In" />
+            </div>
+          </form>
         </div>
-        <form onSubmit={submitForm} className="auth-form">
-          <div className="auth-input-inner-container">
-            <label>E-mail</label>
-            <input
-              onChange={handleChange}
-              className="auth-text-input"
-              name="email"
-              type="email"
-              value={eMail}
-            ></input>
-            <p
-              style={eMailError ? { opacity: "1" } : { opacity: "0" }}
-              className="auth-error-txt"
-            >
-              You must enter a valid e-mail
-            </p>
-          </div>
-          <div className="auth-input-inner-container">
-            <label>Password</label>
-            <input
-              onChange={handleChange}
-              className="auth-text-input"
-              name="password"
-              type="password"
-              value={password}
-            ></input>
-            <p
-              style={passwordError ? { opacity: "1" } : { opacity: "0" }}
-              className="auth-error-txt"
-            >
-              Your password must be at least six characters long
-            </p>
-          </div>
-          <p
-            style={logInError ? { opacity: "1" } : { opacity: "0" }}
-            className="auth-error-txt"
-          >
-            User doesn't exist
-          </p>
-          <div className="auth-input-inner-container auth-bot">
-            <BtnTemplate text="Log In" />
-          </div>
-        </form>
+        <Link to="/signup">
+          <p className="auth-bot-text">Or sign up</p>
+        </Link>
       </div>
-    </div>
+    </>
   );
 }
 

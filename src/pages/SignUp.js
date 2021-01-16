@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 //Components
 import BtnTemplate from "../components/navbar/BtnTemplate.js";
 import { FiUser } from "react-icons/fi";
+import AuthTitle from "../components/auth/AuthTitle";
 
 //Functions
 import isEmailValid from "../functions/isEmailValid";
@@ -15,7 +16,7 @@ import isEmailValid from "../functions/isEmailValid";
 import { useFirestore, useFirebase } from "react-redux-firebase";
 
 //Router
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 function SignUp() {
   const [firstName, setFirstName] = useState("");
@@ -105,85 +106,91 @@ function SignUp() {
   };
 
   return (
-    <div className="auth-container">
-      {loggedIn && <Redirect to="/userhome" />}
-      <div className="auth-input-container">
-        <div className="auth-title-container">
-          <FiUser className="auth-icon" />
-          <h1 className="auth-title">Sign Up</h1>
-        </div>
-        <form onSubmit={submitForm} className="auth-form">
-          <div className="auth-input-inner-container">
-            <label>First Name</label>
-            <input
-              onChange={handleChange}
-              className="auth-text-input"
-              type="text"
-              name="firstName"
-              value={firstName}
-            ></input>
-            <p
-              style={firstNameError ? { opacity: "1" } : { opacity: "0" }}
-              className="auth-error-txt"
-            >
-              Name must be at least 3 letters
-            </p>
+    <>
+      <AuthTitle />
+      <div className="auth-container">
+        {loggedIn && <Redirect to="/userhome" />}
+        <div className="auth-input-container">
+          <div className="auth-title-container">
+            <FiUser className="auth-icon" />
+            <h1 className="auth-title">Sign Up</h1>
           </div>
-          <div className="auth-input-inner-container">
-            <label>Last Name</label>
-            <input
-              onChange={handleChange}
-              className="auth-text-input"
-              name="lastName"
-              type="text"
-              value={lastName}
-            ></input>
-            <p
-              style={lastNameError ? { opacity: "1" } : { opacity: "0" }}
-              className="auth-error-txt"
-            >
-              Last name must be at least 3 letters
-            </p>
-          </div>
-          <div className="auth-input-inner-container">
-            <label>E-mail</label>
-            <input
-              onChange={handleChange}
-              className="auth-text-input"
-              name="email"
-              type="email"
-              value={eMail}
-            ></input>
-            <p
-              style={eMailError ? { opacity: "1" } : { opacity: "0" }}
-              className="auth-error-txt"
-            >
-              You must enter a valid e-mail
-            </p>
-          </div>
-          <div className="auth-input-inner-container">
-            <label>Password</label>
-            <input
-              onChange={handleChange}
-              className="auth-text-input"
-              name="password"
-              type="password"
-              value={password}
-            ></input>
-            <p
-              style={passwordError ? { opacity: "1" } : { opacity: "0" }}
-              className="auth-error-txt"
-            >
-              Your password must be at least six characters long
-            </p>
-          </div>
+          <form onSubmit={submitForm} className="auth-form">
+            <div className="auth-input-inner-container">
+              <label>First Name</label>
+              <input
+                onChange={handleChange}
+                className="auth-text-input"
+                type="text"
+                name="firstName"
+                value={firstName}
+              ></input>
+              <p
+                style={firstNameError ? { opacity: "1" } : { opacity: "0" }}
+                className="auth-error-txt"
+              >
+                Name must be at least 3 letters
+              </p>
+            </div>
+            <div className="auth-input-inner-container">
+              <label>Last Name</label>
+              <input
+                onChange={handleChange}
+                className="auth-text-input"
+                name="lastName"
+                type="text"
+                value={lastName}
+              ></input>
+              <p
+                style={lastNameError ? { opacity: "1" } : { opacity: "0" }}
+                className="auth-error-txt"
+              >
+                Last name must be at least 3 letters
+              </p>
+            </div>
+            <div className="auth-input-inner-container">
+              <label>E-mail</label>
+              <input
+                onChange={handleChange}
+                className="auth-text-input"
+                name="email"
+                type="email"
+                value={eMail}
+              ></input>
+              <p
+                style={eMailError ? { opacity: "1" } : { opacity: "0" }}
+                className="auth-error-txt"
+              >
+                You must enter a valid e-mail
+              </p>
+            </div>
+            <div className="auth-input-inner-container">
+              <label>Password</label>
+              <input
+                onChange={handleChange}
+                className="auth-text-input"
+                name="password"
+                type="password"
+                value={password}
+              ></input>
+              <p
+                style={passwordError ? { opacity: "1" } : { opacity: "0" }}
+                className="auth-error-txt"
+              >
+                Your password must be at least six characters long
+              </p>
+            </div>
 
-          <div className="auth-input-inner-container auth-bot">
-            <BtnTemplate text="Log In" />
-          </div>
-        </form>
+            <div className="auth-input-inner-container auth-bot">
+              <BtnTemplate text="Log In" />
+            </div>
+          </form>
+        </div>
+        <Link to="/login">
+          <p className="auth-bot-text">Or Log In</p>
+        </Link>
       </div>
-    </div>
+    </>
   );
 }
 

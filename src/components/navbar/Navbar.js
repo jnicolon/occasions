@@ -1,20 +1,18 @@
 import React from "react";
 
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import LeftNavbar from "./LeftNavbar";
 
-import { useFirestoreConnect } from "react-redux-firebase";
+import { useSelector } from "react-redux";
 
 function Navbar() {
-  let location = useLocation();
+  const loggedIn = useSelector((state) => state.auth.loggedIn);
 
   return (
     <div
       className="navbar"
-      style={
-        location.pathname === "/" ? { display: "none" } : { display: "block" }
-      }
+      style={!loggedIn ? { display: "none" } : { display: "block" }}
     >
       <div className="navbar-container">
         <Link to="/">
