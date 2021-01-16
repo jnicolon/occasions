@@ -1,5 +1,5 @@
 import "./App.scss";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 
 //Router
 import Home from "./pages/Home";
@@ -17,23 +17,23 @@ import ScheduledPage from "./pages/ScheduledPage";
 function App() {
   return (
     <div>
-      <BrowserRouter>
+      <HashRouter basename="/">
         <Navbar />
         <div className="main-container">
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/login" component={LogIn} />
-            <Route path="/signup" component={SignUp} />
-            <Route path="/userhome" component={UserHome} />
-            <Route path="/addoccasion" component={AddOccasion} />
-            <Route path="/occasionpage" component={OccasionPage} />
-            <Route path="/giftspage" component={GiftsPage} />
-            <Route path="/singlecardpage" component={SingleCardPage} />
-            <Route path="/cartpage" component={CartPage} />
-            <Route path="/scheduledpage" component={ScheduledPage} />
+            <Route exact path="/login" component={LogIn} />
+            <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/userhome" component={UserHome} />
+            <Route exact path="/addoccasion" component={AddOccasion} />
+            <Route exact path="/occasionpage" component={OccasionPage} />
+            <Route exact path="/giftspage" component={GiftsPage} />
+            <Route exact path="/singlecardpage" component={SingleCardPage} />
+            <Route exact path="/cartpage" component={CartPage} />
+            <Route exact path="/scheduledpage" component={ScheduledPage} />
           </Switch>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
