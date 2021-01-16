@@ -1,17 +1,18 @@
 .auth-container {
   width: 100vw;
-  height: 70vh;
+  height: 100%;
   @include flex-column-center;
+  justify-content: flex-start;
 }
 
 .auth-input-container {
   width: 400px;
-  // border: 3px solid $primary;
   border-radius: 20px;
   @include flex-column-center;
   justify-content: flex-start;
   font-family: $primary-font;
   box-shadow: 0px 0px 5px rgba($color: #000000, $alpha: 0.3);
+  margin-top: 40px;
 }
 
 .auth-title-container {
@@ -67,4 +68,24 @@
 
 .auth-bot {
   margin-bottom: 20px;
+}
+
+.auth-occasions-title {
+  position: relative;
+  margin-top: 50px;
+  font-family: $secondary-font;
+  color: $primary;
+  border-bottom: 3px solid $primary;
+  width: 50vw;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.auth-bot-text {
+  font-family: $secondary-font;
+  text-transform: capitalize;
+  font-size: 0.9rem;
+  color: $primary-dark;
+  position: relative;
+  margin-top: 20px;
 }
