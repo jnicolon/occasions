@@ -1,27 +1,27 @@
 import React from "react";
 
-//State
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
-//Icon
 import { FiUser } from "react-icons/fi";
-
-//Components
 import BtnTemplate from "../components/navbar/BtnTemplate.js";
 
-//Functions
 import isEmailValid from "../functions/isEmailValid";
+
+import { useFirebase } from "react-redux-firebase";
+
+import { Redirect } from "react-router-dom";
 
 function LogIn() {
   const [eMail, setEMail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [eMailError, setEMailError] = useState("");
-  // const [logInError, setLogInError] = useState(false);
+  const [logInError, setLogInError] = useState(false);
 
-  // const firebase = useFirebase();
+  const firebase = useFirebase();
 
-  // const loggedIn = useSelector((state) => state.auth.loggedIn);
+  const loggedIn = useSelector((state) => state.auth.loggedIn);
 
   const handleChange = (e) => {
     switch (e.target.name) {
@@ -36,12 +36,6 @@ function LogIn() {
       case "email":
         setEMail(e.target.value);
         setEMailError(isEmailValid(e.target.value));
-        // const reg = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        // if (!reg.test(eMail)) {
-        //   setEMailError(true);
-        // } else {
-        //   setEMailError(false);
-        // }
         break;
       default:
         break;
@@ -51,12 +45,23 @@ function LogIn() {
   const submitForm = (e) => {
     e.preventDefault();
     if (!passwordError && !eMailError) {
-      console.log("submited");
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(eMail, password)
+        .then(() => {
+          console.log(eMail, password);
+          setLogInError(false);
+        })
+        .catch((err) => {
+          setLogInError(true);
+          console.log(err);
+        });
     }
   };
 
   return (
     <div className="auth-container">
+      {loggedIn && <Redirect to="/userhome" />}
       <div className="auth-input-container">
         <div className="auth-title-container">
           <FiUser className="auth-icon" />
@@ -96,8 +101,7 @@ function LogIn() {
             </p>
           </div>
           <p
-            style={{ opacity: "1" }}
-            // style={loginError ? { opacity: "1" } : { opacity: "0" }}
+            style={logInError ? { opacity: "1" } : { opacity: "0" }}
             className="auth-error-txt"
           >
             User doesn't exist

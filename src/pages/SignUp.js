@@ -1,18 +1,21 @@
 import React from "react";
-import { useState } from "react";
 
-//Icon
-import { FiUser } from "react-icons/fi";
+//State
+import { useState } from "react";
+import { useSelector } from "react-redux";
 
 //Components
 import BtnTemplate from "../components/navbar/BtnTemplate.js";
+import { FiUser } from "react-icons/fi";
 
 //Functions
 import isEmailValid from "../functions/isEmailValid";
 
-// import { useFirestore, useFirebase } from "react-redux-firebase";
-// import { useSelector } from "react-redux";
-// import { Redirect } from "react-router-dom";
+//Firebase
+import { useFirestore, useFirebase } from "react-redux-firebase";
+
+//Router
+import { Redirect } from "react-router-dom";
 
 function SignUp() {
   const [firstName, setFirstName] = useState("");
@@ -24,6 +27,8 @@ function SignUp() {
   const [lastNameError, setLastNameError] = useState("");
   const [eMailError, setEMailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+
+  const loggedIn = useSelector((state) => state.auth.loggedIn);
 
   const handleChange = (e) => {
     console.log(e.target.value.trim().length, e.target.name);
@@ -101,10 +106,11 @@ function SignUp() {
 
   return (
     <div className="auth-container">
+      {loggedIn && <Redirect to="/userhome" />}
       <div className="auth-input-container">
         <div className="auth-title-container">
           <FiUser className="auth-icon" />
-          <h1 className="auth-title">Log In</h1>
+          <h1 className="auth-title">Sign Up</h1>
         </div>
         <form onSubmit={submitForm} className="auth-form">
           <div className="auth-input-inner-container">
