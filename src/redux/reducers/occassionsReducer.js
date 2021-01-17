@@ -2,7 +2,7 @@ import * as actions from "../actions";
 
 const initState = {
   userOccasions: [],
-  currentOccasion:""
+  currentOccasion: "",
 };
 
 const occasionsReducer = (state = initState, action) => {
@@ -12,11 +12,11 @@ const occasionsReducer = (state = initState, action) => {
         ...state,
         userOccasions: { ...action.payload },
       };
-      case actions.SET_CURRENT_OCCASION:
-        return {
-          ...state,
-          currentOccasion: action.payload
-        }
+    case actions.SET_CURRENT_OCCASION:
+      return {
+        ...state,
+        currentOccasion: action.payload,
+      };
     default:
       return state;
   }

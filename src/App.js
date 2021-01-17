@@ -62,9 +62,15 @@ function App() {
             <Route path="/signup" component={SignUp} />
             <AuthRoute path="/userhome" component={UserHome} />
             <AuthRoute path="/addoccasion" component={AddOccasion} />
-            <AuthRoute path="/occasionpage" component={OccasionPage} />
+            <AuthRoute
+              path="/occasionpage/:occasionId"
+              component={OccasionPage}
+            />
             <AuthRoute path="/giftspage" component={GiftsPage} />
-            <AuthRoute path="/singlecardpage" component={SingleCardPage} />
+            <AuthRoute
+              path="/singlecardpage/:cadId"
+              component={SingleCardPage}
+            />
             <AuthRoute path="/cartpage" component={CartPage} />
             <AuthRoute path="/scheduledpage" component={ScheduledPage} />
           </Switch>
