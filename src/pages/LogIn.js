@@ -46,9 +46,9 @@ function LogIn() {
     e.preventDefault();
 
     if (eMail.trim().length < 1 || isEmailValid(eMail) === false) {
-      setEMailError(false);
-    } else {
       setEMailError(true);
+    } else {
+      setEMailError(false);
     }
 
     if (password.trim().length < 6) {
@@ -57,7 +57,7 @@ function LogIn() {
       setPasswordError(false);
     }
 
-    if (!passwordError && !eMailError) {
+    if (!passwordError || !eMailError) {
       firebase
         .auth()
         .signInWithEmailAndPassword(eMail, password)
