@@ -1,29 +1,30 @@
-import React from "react";
-// import { useState, useEffect } from "react";
-// import { useSelector } from "react-redux";
-// import { useFirestore } from "react-redux-firebase";
+import React, { useState, useEffect } from "react";
+//Redux
+import { useSelector } from "react-redux";
+//Firebase
+import { useFirestore } from "react-redux-firebase";
+//Moment
 import moment from "moment";
-import { Link } from "react-router-dom";
-// import BtnTemplate from "../components/nav/BtnTemplate";
-// import { useParams } from "react-router-dom";
+//Router
+import { Link, useParams } from "react-router-dom";
+//Components
 import BtnTemplate from "../components/navbar/BtnTemplate";
+//Hooks
+import useCurrentOccasion from "../hooks/useCurrentOccasion";
 
 function OccasionPage() {
-  const occasionId = "456";
+  const { occasionId } = useParams();
   const occasionInCart = false;
-  const { occDate, occName, occasion, occGift } = {
-    occDate: new Date(),
-    occasion: "Birthday",
-    occName: "Maria",
-    occGift: false,
-  };
+  const { occDate, occName, occasion, occGift } = useCurrentOccasion(
+    occasionId
+  );
 
   if (occasion) {
     return (
       <div className="occasion-page-container">
         <>
           <div className="occasion-page-title">
-            <h2>September 29th 2020</h2>
+            <h2>{occDate && `${moment(occDate.toDate()).format("LL")}`}</h2>
             {/* <h2>{occDate && `${moment(occDate.toDate()).format("LL")}`}</h2> */}
             <h2>{`is a special occasion because it's`}</h2>
             <h1>{`${occName}'s ${occasion}`}</h1>

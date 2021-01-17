@@ -16,6 +16,7 @@ function OccasionListItem({ occDate, currentOccasion }) {
   function onClickOccasion(currentOccasion) {
     dispatch(setCurrentOccasion(currentOccasion));
   }
+  //Might not need this
 
   // //We add the date to currentOccasion for cloud functions functionality.
   // const occDateString = Date.parse(occDate);

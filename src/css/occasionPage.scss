@@ -1,6 +1,7 @@
 .occasion-page-container {
+  margin-top: 20px;
   padding: 10px;
-
+  background-color: $near-white;
   width: 50vw;
   @include flex-column-center;
   justify-content: space-around;

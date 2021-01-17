@@ -1,6 +1,4 @@
 import React from "react";
-//State
-import { useSelector } from "react-redux";
 //Custom Hook
 import useUpNext from "../../hooks/useUpNext";
 //Icon
@@ -11,8 +9,7 @@ import moment from "moment";
 // import { Link } from "react-router-dom";
 
 function UpNext() {
-  const userId = useSelector((state) => state.firebase.auth.uid);
-  const upNext = useUpNext(userId);
+  const upNext = useUpNext();
 
   return (
     <div className="occ-upNext-container">

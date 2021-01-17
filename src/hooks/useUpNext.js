@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useFirestore } from "react-redux-firebase";
 import moment from "moment";
 
-const useUpNext = (userId) => {
+const useUpNext = () => {
   const firestore = useFirestore();
   const [upNext, setUpNext] = useState({});
+  const userId = useSelector((state) => state.firebase.auth.uid);
 
   useEffect(() => {
     firestore
