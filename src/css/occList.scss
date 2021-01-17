@@ -27,6 +27,7 @@
   border-top: 1px solid $primary;
   border-bottom: 1px solid $primary;
   margin-top: 5px;
+  cursor: pointer;
 }
 
 .occ-list-btn-container {
@@ -39,7 +40,7 @@
     color: $mid-grey;
   }
   &:hover {
-    background-color: $off-white;
+    background-color: $ultralight-grey;
   }
 }
 

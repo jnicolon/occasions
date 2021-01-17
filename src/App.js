@@ -66,9 +66,9 @@ function App() {
               path="/occasionpage/:occasionId"
               component={OccasionPage}
             />
-            <AuthRoute path="/giftspage" component={GiftsPage} />
+            <AuthRoute path="/giftspage/:occasionId" component={GiftsPage} />
             <AuthRoute
-              path="/singlecardpage/:cadId"
+              path="/singlecardpage/:cardId"
               component={SingleCardPage}
             />
             <AuthRoute path="/cartpage" component={CartPage} />

@@ -50,7 +50,7 @@ function OccasionPage() {
               <div className="occasion-page-btn-container">
                 <h1>You have not set a gift for this special occasion!</h1>
                 <div className="occasion-page-options">
-                  <Link to={`/giftpage/${occasionId}`}>
+                  <Link to={`/giftspage/${occasionId}`}>
                     <BtnTemplate text="Buy and schedule a gift" />
                   </Link>
                 </div>

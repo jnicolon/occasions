@@ -1,42 +1,17 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+//Hooks
+import useCurrentOccasion from "../hooks/useCurrentOccasion";
+import useCardList from "../hooks/useCardList";
+//Component
 import SingleCard from "../components/gifts/SingleCard";
-import { useFirestore } from "react-redux-firebase";
+//Router
+import { useParams } from "react-router-dom";
 
 export default function GiftsPage() {
-  //   const currentOccasion = useSelector(
-  //     (state) => state.occasions.currentOccasion
-  //   );
-  const currentOccasion = { occName: "Maria", occasion: "Birthday" };
+  const { occasionId } = useParams();
+  const currentOccasion = useCurrentOccasion(occasionId);
   const { occName, occasion } = currentOccasion;
-
-  const [cards, setCards] = useState([
-    {
-      cardName: "Brother's",
-      cardAuthor: "Bennjamin",
-      url:
-        "https://i.pinimg.com/originals/b0/47/d0/b047d0d2d536056481d838ad7d3135ad.jpg",
-      cardId: "123",
-      occasion: "Birthday",
-    },
-  ]);
-
-  //   const firestore = useFirestore();
-
-  //   useEffect(() => {
-  //     firestore
-  //       .collection("cards")
-  //       .get()
-  //       .then((snap) => {
-  //         let tempCards = [];
-  //         snap.forEach((doc) => {
-  //           tempCards.push({ ...doc.data(), cardId: doc.id });
-  //         });
-  //         setCards(tempCards);
-  //       })
-  //       .catch((err) => console.log(err));
-  //   }, [firestore, setCards]);
+  const cards = useCardList();
 
   return (
     <div className="gift-page-container ">

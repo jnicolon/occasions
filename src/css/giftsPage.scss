@@ -64,7 +64,7 @@
 .single-card-image {
   width: 150px;
   height: 200px;
-  border: rgb(174, 195, 253) 1px solid;
+  border: $primary 1px solid;
   margin-top: 20px;
   background-color: white;
 }
@@ -75,6 +75,9 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
+  font-family: $secondary-font;
+  color: $dark-grey;
+  margin-top: 10px;
 }
 
 .single-card-name {
@@ -86,7 +89,6 @@
 
 .single-card-page-container {
   position: relative;
-
   width: 450px;
   display: flex;
   flex-direction: column;
@@ -100,13 +102,13 @@
   width: 300px;
 }
 
-@media screen and (max-width: 600px) {
-  .gift-page-cards-container {
-    width: auto;
-    margin: auto;
-  }
+// @media screen and (max-width: 600px) {
+//   .gift-page-cards-container {
+//     width: auto;
+//     margin: auto;
+//   }
 
-  /* .single-card-container {
+/* .single-card-container {
       border: none;
       background-color: var(--background-gray);
       height: 200px;
@@ -126,4 +128,4 @@
       margin-bottom: 10px;
       box-shadow: rgb(202, 202, 202) -0px 0px 10px;
     } */
-}
+// }
