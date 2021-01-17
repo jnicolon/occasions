@@ -25,7 +25,6 @@ function OccasionPage() {
         <>
           <div className="occasion-page-title">
             <h2>{occDate && `${moment(occDate.toDate()).format("LL")}`}</h2>
-            {/* <h2>{occDate && `${moment(occDate.toDate()).format("LL")}`}</h2> */}
             <h2>{`is a special occasion because it's`}</h2>
             <h1>{`${occName}'s ${occasion}`}</h1>
           </div>
