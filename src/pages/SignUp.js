@@ -31,6 +31,9 @@ function SignUp() {
 
   const loggedIn = useSelector((state) => state.auth.loggedIn);
 
+  const firebase = useFirebase();
+  const firestore = useFirestore();
+
   const handleChange = (e) => {
     console.log(e.target.value.trim().length, e.target.name);
     switch (e.target.name) {
@@ -61,13 +64,6 @@ function SignUp() {
       case "email":
         setEMail(e.target.value);
         setEMailError(isEmailValid(e.target.value));
-
-        // const reg = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        // if (!reg.test(eMail)) {
-        //   setEMailError(true);
-        // } else {
-        //   setEMailError(false);
-        // }
         break;
       default:
         break;
@@ -86,23 +82,21 @@ function SignUp() {
       console.log(firstName, lastName, eMail, password);
     }
 
-    // if (!reg.test(eMail)) {
-    //   setEMailError(true);
-    // } else if (!passwordError) {
-    //   firebase
-    //     .auth()
-    //     .createUserWithEmailAndPassword(eMail, password)
-    //     .then((resp) => {
-    //       return firestore.collection("users").doc(resp.user.uid).set({
-    //         firstName,
-    //         lastName,
-    //         dob,
-    //         eMail,
-    //       });
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //     });
+    if (!eMailError && !passwordError) {
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(eMail, password)
+        .then((resp) => {
+          return firestore.collection("users").doc(resp.user.uid).set({
+            firstName,
+            lastName,
+            eMail,
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   return (
@@ -182,7 +176,7 @@ function SignUp() {
             </div>
 
             <div className="auth-input-inner-container auth-bot">
-              <BtnTemplate text="Log In" />
+              <BtnTemplate text="Sign Up" />
             </div>
           </form>
         </div>

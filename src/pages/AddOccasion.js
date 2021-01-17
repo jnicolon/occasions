@@ -1,7 +1,4 @@
-import React from "react";
-
-//React hooks
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 //Slides
 import AddOccSlide1 from "../components/occasions/addOccasion/addOccSlide1";
@@ -14,6 +11,10 @@ import AddOccSlide5 from "../components/occasions/addOccasion/addOccSlide5";
 import isEmailValid from "../functions/isEmailValid";
 import isDateInPast from "../functions/isDateInPast";
 
+//Firebase
+import { useFirestore } from "react-redux-firebase";
+import { useSelector } from "react-redux";
+
 function AddOccasion() {
   const [slide, setSlide] = useState(1);
   const [error, setError] = useState(false);
@@ -24,46 +25,69 @@ function AddOccasion() {
   const [occDate, setOccDate] = useState("");
   const [occEmail, setOccEmail] = useState("");
 
-  // const userId = useSelector((state) => state.firebase.auth.uid);
+  const userId = useSelector((state) => state.firebase.auth.uid);
 
-  // const firestore = useFirestore();
+  const firestore = useFirestore();
 
   const handleChange = (e) => {
     setError(false);
     switch (e.target.name) {
       case "occasion":
         setOccasion(e.target.value);
+        if (e.target.value.trim().length < 1) {
+          setError(true);
+        } else {
+          setError(false);
+        }
         break;
       case "occName":
         setOccName(e.target.value);
+        if (e.target.value.trim().length < 1) {
+          setError(true);
+        } else {
+          setError(false);
+        }
         break;
       case "date":
         setOccDate(e.target.value);
+        if (isDateInPast(occDate)) {
+          setDateError(true);
+          console.log(isDateInPast(occDate));
+        } else {
+          setDateError(false);
+        }
         break;
       case "email":
         setOccEmail(e.target.value);
+        console.log(e.target.value);
+        if (e.target.value.trim().length < 1) {
+          setError(true);
+        } else {
+          setError(false);
+        }
         break;
       default:
         break;
     }
   };
 
-  // const addOccasion = () => {
-  //   const date = new Date(`${occDate} 00:00:00`);
+  const addOccasion = () => {
+    const date = new Date(`${occDate} 00:00:00`);
 
-  //   firestore
-  //     .collection("occasions")
-  //     .doc(userId)
-  //     .collection("userOccasions")
-  //     .add({
-  //       occasion,
-  //       occDate: date,
-  //       occName,
-  //       occEmail,
-  //       occGift: false,
-  //     })
-  //     .then(console.log("occasion added to firestore"));
-  // };
+    firestore
+      .collection("occasions")
+      .doc(userId)
+      .collection("userOccasions")
+      .add({
+        occasion,
+        occDate: date,
+        occName,
+        occEmail,
+        occGift: false,
+      })
+      .then(console.log("occasion added to firestore"))
+      .catch((err) => console.log(err));
+  };
 
   useEffect(() => {
     setSlide(1);
@@ -88,6 +112,7 @@ function AddOccasion() {
     } else {
       if (isDateInPast(occDate)) {
         setDateError(true);
+        console.log(isDateInPast(occDate));
       } else {
         setSlide((slide) => slide + 1);
       }
@@ -95,9 +120,9 @@ function AddOccasion() {
   };
 
   const handleSubmit = (value) => {
-    if (isEmailValid(value)) {
+    if (!error && isEmailValid(value)) {
       setSlide((slide) => slide + 1);
-      // addOccasion();
+      addOccasion();
       console.log({ occasion, occDate, occEmail, occName });
     } else {
       setError(true);
