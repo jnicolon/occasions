@@ -35,35 +35,23 @@ function SignUp() {
   const firestore = useFirestore();
 
   const handleChange = (e) => {
-    console.log(e.target.value.trim().length, e.target.name);
     switch (e.target.name) {
       case "firstName":
         setFirstName(e.target.value);
-        if (firstName.trim().length < 3) {
-          setFirstNameError(true);
-        } else {
-          setFirstNameError(false);
-        }
+        setFirstNameError(false);
         break;
       case "lastName":
         setLastName(e.target.value);
-        if (lastName.trim().length < 3) {
-          setLastNameError(true);
-        } else {
-          setLastNameError(false);
-        }
+        setLastNameError(false);
         break;
       case "password":
         setPassword(e.target.value);
-        if (password.trim().length < 6) {
-          setPasswordError(true);
-        } else {
-          setPasswordError(false);
-        }
+        setPasswordError(false);
+
         break;
       case "email":
+        setEMailError(false);
         setEMail(e.target.value);
-        setEMailError(isEmailValid(e.target.value));
         break;
       default:
         break;
@@ -73,16 +61,35 @@ function SignUp() {
   const submitForm = (e) => {
     e.preventDefault();
 
+    if (firstName.trim().length < 3) {
+      setFirstNameError(true);
+    } else {
+      setFirstNameError(false);
+    }
+    if (lastName.trim().length < 3) {
+      setLastNameError(true);
+    } else {
+      setLastNameError(false);
+    }
+
+    if (password.trim().length < 6) {
+      setPasswordError(true);
+    } else {
+      setPasswordError(false);
+    }
+
+    if (eMail.trim().length < 1 || isEmailValid(eMail) === false) {
+      setEMailError(true);
+    } else {
+      setEMailError(false);
+    }
+
     if (
       firstNameError === false &&
       lastNameError === false &&
       eMailError === false &&
       passwordError === false
     ) {
-      console.log(firstName, lastName, eMail, password);
-    }
-
-    if (!eMailError && !passwordError) {
       firebase
         .auth()
         .createUserWithEmailAndPassword(eMail, password)

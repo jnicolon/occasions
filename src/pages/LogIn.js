@@ -24,12 +24,16 @@ function LogIn() {
   const [passwordError, setPasswordError] = useState("");
   const [eMailError, setEMailError] = useState("");
   const [logInError, setLogInError] = useState(false);
-
+  const [errorMsg, setErrorMsg] = useState("");
   const firebase = useFirebase();
 
   const loggedIn = useSelector((state) => state.auth.loggedIn);
 
   const handleChange = (e) => {
+    setLogInError(false);
+    setPasswordError(false);
+    setLogInError(false);
+
     switch (e.target.name) {
       case "email":
         setEMail(e.target.value);
@@ -67,7 +71,7 @@ function LogIn() {
         })
         .catch((err) => {
           setLogInError(true);
-          console.log(err);
+          setErrorMsg(err.message);
         });
     }
   };
@@ -119,7 +123,7 @@ function LogIn() {
               style={logInError ? { opacity: "1" } : { opacity: "0" }}
               className="auth-error-txt"
             >
-              User doesn't exist
+              {`${errorMsg}`}
             </p>
             <div className="auth-input-inner-container auth-bot">
               <BtnTemplate text="Log In" />
