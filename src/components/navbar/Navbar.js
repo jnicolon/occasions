@@ -12,7 +12,7 @@ function Navbar() {
   return (
     <div
       className="navbar"
-      style={!loggedIn ? { opacity: "none" } : { display: "block" }}
+      style={!loggedIn ? { display: "none" } : { display: "block" }}
     >
       <div className="navbar-container">
         <Link to="/">
