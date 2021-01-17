@@ -1,14 +1,12 @@
 import React from "react";
 
 import UpNext from "../components/occasions/UpNext";
-// import AddOccasionHome from "../components/occasions/AddOccasionHome.js";
 import OccasionList from "../components/occasions/OccasionList";
 
 function UserHome() {
   return (
     <div className="occ-home-container">
       <UpNext />
-      {/* <AddOccasionHome /> */}
       <OccasionList />
     </div>
   );

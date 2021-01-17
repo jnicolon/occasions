@@ -20,7 +20,7 @@ function addOccSlide5({ slide }) {
         Got to the event's page to set up a thoughtful present!
       </h3>
       <Link to="/userhome">
-        <BtnTemplate text="Go to event's page" />
+        <BtnTemplate text="Go to your occasions page" />
       </Link>
     </div>
   );

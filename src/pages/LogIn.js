@@ -31,17 +31,11 @@ function LogIn() {
 
   const handleChange = (e) => {
     switch (e.target.name) {
-      case "password":
-        setPassword(e.target.value);
-        if (password.trim().length < 6) {
-          setPasswordError(true);
-        } else {
-          setPasswordError(false);
-        }
-        break;
       case "email":
         setEMail(e.target.value);
-        setEMailError(isEmailValid(e.target.value));
+        break;
+      case "password":
+        setPassword(e.target.value);
         break;
       default:
         break;
@@ -50,6 +44,19 @@ function LogIn() {
 
   const submitForm = (e) => {
     e.preventDefault();
+
+    if (eMail.trim().length < 1 || isEmailValid(eMail) === false) {
+      setEMailError(false);
+    } else {
+      setEMailError(true);
+    }
+
+    if (password.trim().length < 6) {
+      setPasswordError(true);
+    } else {
+      setPasswordError(false);
+    }
+
     if (!passwordError && !eMailError) {
       firebase
         .auth()
