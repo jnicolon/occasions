@@ -5,6 +5,7 @@ import { useParams, Link, Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 //Components
 import BtnTemplate from "../components/navbar/BtnTemplate";
+import SingleCardPageMiddle from "../components/gifts/SingleCardPageMiddle";
 //Hook
 import useCardList from "../hooks/useCardList";
 import useGetCart from "../hooks/useGetCart";
@@ -18,12 +19,14 @@ function SingleCardPage() {
   );
   const { occName, occasion } = currentOccasion;
 
+  const [cardMessage, setCardMessage] = useState("");
+
   const firestore = useFirestore();
   const cart = useGetCart();
 
   const { cardId } = useParams();
   const allCards = useCardList();
-  const card = allCards.filter((card) => card.cardId === cardId)[0];
+  let card = allCards.filter((card) => card.cardId === cardId)[0];
 
   //Redirect for when people hit refresh and state in redux is reset.
   const [redirect, setRedirect] = useState(false);
@@ -43,7 +46,13 @@ function SingleCardPage() {
     });
   }, [cart, currentOccasion]);
 
+  const handleChange = (e) => {
+    setCardMessage(e.target.value);
+  };
+
   const addToCart = (item) => {
+    item.card.cardMessage = cardMessage;
+    console.log(item);
     firestore
       .collection("cart")
       .doc(userId)
@@ -57,15 +66,11 @@ function SingleCardPage() {
         {redirect && <Redirect to="/userhome" />}
         {occName && (
           <div className="gift-page-title">
+            <h2>Write something for</h2>
             <h1>{`${occName}'s ${occasion}`}</h1>
           </div>
         )}
-
-        <img
-          className="single-card-page-img"
-          src={card.url}
-          alt={`${card.cardName}`}
-        ></img>
+        <SingleCardPageMiddle handleChange={handleChange} card={card} />
         <Link to="/cartpage">
           <BtnTemplate
             onClick={() => addToCart({ card, currentOccasion })}

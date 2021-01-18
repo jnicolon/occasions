@@ -40,7 +40,6 @@
 .single-card-container {
   width: 200px;
   height: 300px;
-  border: var(--primary-border) solid 1px;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -89,7 +88,7 @@
   margin-top: 20px;
   padding: 10px;
   background-color: $near-white;
-  width: 50vw;
+  width: $container-width;
   @include flex-column-center;
   justify-content: space-around;
 }
@@ -98,6 +97,24 @@
   box-shadow: rgb(105, 105, 105) -0px 0px 20px;
   margin: 0px 0px 30px 0px;
   width: 300px;
+}
+
+.single-card-page-form {
+  @include flex-column-center;
+  label {
+    font-family: $secondary-font;
+    color: $mid-grey;
+    margin-bottom: 5px;
+  }
+}
+
+.single-card-page-input {
+  margin-bottom: 10px;
+  width: 300px;
+  height: 100px;
+  vertical-align: top;
+  padding: 8px;
+  font-family: $secondary-font;
 }
 
 // @media screen and (max-width: 600px) {

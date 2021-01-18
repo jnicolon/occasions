@@ -7,7 +7,7 @@ function CartItem({ item, currentCart, deleteItem }) {
     <div className="cart-item-container">
       <img className="cart-item-img" src={item.card.url} alt="card name"></img>
       <div className="cart-item-text">
-        <h4>{item.card.cardName}</h4>
+        <h4 className="cart-item-title">{item.card.cardName}</h4>
         <h6>
           For {item.currentOccasion.occName}'s {item.currentOccasion.occasion}
         </h6>

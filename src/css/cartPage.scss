@@ -33,6 +33,7 @@
   align-items: center;
 
   h3 {
+    font-family: $secondary-font;
     font-size: 1rem;
   }
 }
@@ -85,4 +86,10 @@
   &:hover {
     color: $primary-dark;
   }
+}
+
+.cart-page-title {
+  font-size: 1.5rem;
+  padding: 4px;
+  border-bottom: 2px solid $primary;
 }

@@ -29,7 +29,7 @@ function CartPage() {
 
   return (
     <div className="cart-page-container">
-      <h4>Your cart</h4>
+      <h1 className="cart-page-title">Your cart</h1>
       <div className="cart-page-inner-container">
         <div className="cart-page-items-main-container">
           {currentCart.length > 0 ? (
