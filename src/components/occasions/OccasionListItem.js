@@ -17,16 +17,15 @@ function OccasionListItem({ occDate, currentOccasion }) {
     dispatch(setCurrentOccasion(occasion));
   }
 
-  // //We add the date to currentOccasion for cloud functions functionality.
-  // const occDateString = Date.parse(occDate);
-  // const currentOccasionWithDate = { ...currentOccasion, occDateString };
-  //Might not need this
+  //We add the date to currentOccasion for cloud functions functionality.
+  const occDateString = Date.parse(occDate);
+  const currentOccasionWithDate = { ...currentOccasion, occDateString };
 
   return (
     <Link to={`/occasionpage/${currentOccasion.occasionId}`}>
       <div
         className="occ-list-item-container"
-        onClick={() => onClickOccasion(currentOccasion)}
+        onClick={() => onClickOccasion(currentOccasionWithDate)}
       >
         <h6 className="occ-list-single-item-container">{`${currentOccasion.occName}`}</h6>
         <h6 className="occ-list-single-item-container">{`${currentOccasion.occasion}`}</h6>
