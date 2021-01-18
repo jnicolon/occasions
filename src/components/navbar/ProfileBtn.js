@@ -17,7 +17,7 @@ function ProfileBtn() {
           dispatch(toggleProfileModal(true));
         }}
       >
-        <FiUser size={32} />
+        <FiUser className="navbar-icon" />
       </div>
 
       <div

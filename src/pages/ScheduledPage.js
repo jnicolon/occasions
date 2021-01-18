@@ -1,15 +1,16 @@
-import React from "react";
-import { useState, useEffect } from "react";
-// import { useSelector } from "react-redux";
-
-// import { useFirestore } from "react-redux-firebase";
-
+import React, { useState, useEffect } from "react";
+//Redux
+import { useSelector } from "react-redux";
+//Firestore
+import { useFirestore } from "react-redux-firebase";
+//Moment
 import moment from "moment";
+//Router
 import { Link } from "react-router-dom";
 
 function ScheduledPage() {
-  //   const userId = useSelector((state) => state.firebase.auth.uid);
-  //   const firestore = useFirestore();
+  const userId = useSelector((state) => state.firebase.auth.uid);
+  const firestore = useFirestore();
 
   const [scheduledOccasions, setScheduledOccasions] = useState([
     {
@@ -26,21 +27,21 @@ function ScheduledPage() {
     },
   ]);
 
-  //   useEffect(() => {
-  //     userId &&
-  //       firestore
-  //         .collection("scheduledOccasions")
-  //         .doc(userId)
-  //         .get()
-  //         .then((doc) => {
-  //           if (doc.exists) {
-  //             let temp = doc.data();
-  //             setScheduledOccasions(temp.scheduledOccasionsInfo);
-  //           } else {
-  //             console.log("doc doesnt exist");
-  //           }
-  //         });
-  //   }, [firestore, userId]);
+  useEffect(() => {
+    userId &&
+      firestore
+        .collection("scheduledOccasions")
+        .doc(userId)
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+            let temp = doc.data();
+            setScheduledOccasions(temp.scheduledOccasionsInfo);
+          } else {
+            console.log("doc doesnt exist");
+          }
+        });
+  }, [firestore, userId]);
 
   return (
     <div className="scheduled-page-container">
@@ -65,7 +66,9 @@ function ScheduledPage() {
                   <p className="scheduled-page-item-txt">
                     {`You have selected the card ${item.card.cardName} by ${item.card.cardAuthor}`}
                   </p>
-                  <p className="scheduled-page-item-txt">{`to be sent on ${item.currentOccasion.occDate}`}</p>
+                  <p className="scheduled-page-item-txt">{`to be sent on ${moment(
+                    item.currentOccasion.occDate.toDate()
+                  ).format("LL")}`}</p>
                 </div>
               </div>
             </Link>

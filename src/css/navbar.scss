@@ -29,12 +29,20 @@
   font-family: $secondary-font;
   font-size: 1.5rem;
   color: $primary;
+  transition: all 0.3s;
+  &:hover {
+    color: $primary-dark;
+  }
 }
 
 .navbar-icon {
   font-size: 1.8rem;
   margin: 8px;
   color: $primary;
+  transition: all 0.3s;
+  &:hover {
+    color: $primary-dark;
+  }
 }
 
 .nav-cart-icon-container {
