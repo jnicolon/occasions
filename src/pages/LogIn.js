@@ -66,7 +66,6 @@ function LogIn() {
         .auth()
         .signInWithEmailAndPassword(eMail, password)
         .then(() => {
-          console.log(eMail, password);
           setLogInError(false);
         })
         .catch((err) => {

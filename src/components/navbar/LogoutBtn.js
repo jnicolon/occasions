@@ -8,9 +8,7 @@ function LogoutBtn() {
     firebase
       .auth()
       .signOut()
-      .then(() => {
-        console.log("Logged out");
-      })
+      .then(() => {})
       .catch((err) => {
         console.log(err);
       });
