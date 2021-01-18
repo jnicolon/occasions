@@ -4,8 +4,7 @@ import { useState, useRef } from "react";
 import { TiGift } from "react-icons/ti";
 import { ImCross } from "react-icons/im";
 
-function PresentStatusIcon() {
-  const presentStatus = false;
+function PresentStatusIcon({ presentStatus }) {
   const [iconDisplayStatus, setIconDisplayStatus] = useState(false);
   const [style, setStyle] = useState({});
   const presentRef = useRef(null);

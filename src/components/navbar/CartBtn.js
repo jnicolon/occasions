@@ -1,18 +1,25 @@
 import React from "react";
-
+//Component
 import { AiOutlineShoppingCart } from "react-icons/ai";
-
+//Router
 import { Link } from "react-router-dom";
+//Firestore
+import { useFirestoreConnect } from "react-redux-firebase";
+//Redux
+import { useSelector } from "react-redux";
 
 function CartBtn() {
-  const currentCart = [0, 1, 3, 4, 5, 6, 7, 8, 9, 10];
+  const userId = useSelector((state) => state.firebase.auth.uid);
+  useFirestoreConnect([{ collection: "cart", doc: userId }]);
+  const { cart } = useSelector(({ firestore: { data } }) => data.cart[userId]);
+
   return (
     <Link to="/cartpage">
       <span className="nav-cart-icon-container">
         <AiOutlineShoppingCart className="navbar-icon" />
-        {currentCart.length === 0 ? null : (
+        {cart.length === 0 ? null : (
           <div className="nav-cart-number">
-            <p>{currentCart.length}</p>
+            <p>{cart.length}</p>
           </div>
         )}
       </span>

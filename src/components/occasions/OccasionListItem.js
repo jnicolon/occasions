@@ -13,20 +13,20 @@ function OccasionListItem({ occDate, currentOccasion }) {
 
   //The occasion passed here is the one we are mapping.
   //This way we can track what occasion we are clicking on the list.
-  function onClickOccasion(currentOccasion) {
-    dispatch(setCurrentOccasion(currentOccasion));
+  function onClickOccasion(occasion) {
+    dispatch(setCurrentOccasion(occasion));
   }
-  //Might not need this
 
   // //We add the date to currentOccasion for cloud functions functionality.
   // const occDateString = Date.parse(occDate);
   // const currentOccasionWithDate = { ...currentOccasion, occDateString };
+  //Might not need this
 
   return (
     <Link to={`/occasionpage/${currentOccasion.occasionId}`}>
       <div
         className="occ-list-item-container"
-        onClick={onClickOccasion(currentOccasion)}
+        onClick={() => onClickOccasion(currentOccasion)}
       >
         <h6 className="occ-list-single-item-container">{`${currentOccasion.occName}`}</h6>
         <h6 className="occ-list-single-item-container">{`${currentOccasion.occasion}`}</h6>

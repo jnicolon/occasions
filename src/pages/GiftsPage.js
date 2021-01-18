@@ -1,16 +1,16 @@
 import React from "react";
 //Hooks
-import useCurrentOccasion from "../hooks/useCurrentOccasion";
 import useCardList from "../hooks/useCardList";
 //Component
 import SingleCard from "../components/gifts/SingleCard";
-//Router
-import { useParams } from "react-router-dom";
+//State
+import { useSelector } from "react-redux";
 
 export default function GiftsPage() {
-  const { occasionId } = useParams();
-  const currentOccasion = useCurrentOccasion(occasionId);
-  const { occName, occasion } = currentOccasion;
+  const { occName, occasion } = useSelector(
+    (state) => state.occasions.currentOccasion
+  );
+
   const cards = useCardList();
 
   return (

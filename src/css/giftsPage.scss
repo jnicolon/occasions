@@ -1,12 +1,10 @@
 .gift-page-container {
-  position: relative;
-  top: var(--nav-height);
-  height: 100%;
-  width: 100%;
-  max-width: 1000px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: $near-white;
+  width: 50vw;
+  @include flex-column-center;
+  justify-content: space-around;
 }
 
 .gift-page-title {
@@ -48,14 +46,14 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
+  background-color: $near-white;
   transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   position: relative;
   top: 0px;
   &:hover {
     position: relative;
     top: -10px;
-    background-color: var(--single-card-image-bg-color);
+    background-color: white;
     border: var(--single-card-image-bg-color) 1px solid;
     box-shadow: rgb(105, 105, 105) -0px 0px 10px;
   }
@@ -88,12 +86,12 @@
 }
 
 .single-card-page-container {
-  position: relative;
-  width: 450px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: $near-white;
+  width: 50vw;
+  @include flex-column-center;
+  justify-content: space-around;
 }
 
 .single-card-page-img {

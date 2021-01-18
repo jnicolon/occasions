@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
+//Router
 import { useParams, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-// import { useFirestore } from "react-redux-firebase";
+//State
 import { useSelector } from "react-redux";
-// import { Link } from "react-router-dom";
+//Components
 import BtnTemplate from "../components/navbar/BtnTemplate";
+//Hook
 
 function SingleCardPage() {
-  //   let { cardId } = useParams();
-  //   const firestore = useFirestore();
+  const { cardId } = useParams();
+  const { occName, occasion } = useSelector(
+    (state) => state.occasions.currentOccasion
+  );
+
   //   const [currentCart, setCurrentCart] = useState([]);
   const [card, setCard] = useState({
     cardName: "Brother's",
@@ -25,12 +29,6 @@ function SingleCardPage() {
     occDate: "September 29th",
   };
 
-  //   const currentOccasion = useSelector((state) => {
-  //     return state.occasions.currentOccasion;
-  //   });
-  //   const cart = useSelector((state) => {
-  //     return state.firestore.data.cart;
-  //   });
   //   const userId = useSelector((state) => state.firebase.auth.uid);
 
   //   useEffect(() => {
@@ -63,9 +61,9 @@ function SingleCardPage() {
 
   return (
     <div className="single-card-page-container">
-      {currentOccasion.occName && (
+      {occName && (
         <div className="gift-page-title">
-          <h1>{`${currentOccasion.occName}'s ${currentOccasion.occasion}`}</h1>
+          <h1>{`${occName}'s ${occasion}`}</h1>
         </div>
       )}
 

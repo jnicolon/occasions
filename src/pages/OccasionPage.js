@@ -1,22 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 //Redux
 import { useSelector } from "react-redux";
-//Firebase
-import { useFirestore } from "react-redux-firebase";
 //Moment
 import moment from "moment";
 //Router
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 //Components
 import BtnTemplate from "../components/navbar/BtnTemplate";
-//Hooks
-import useCurrentOccasion from "../hooks/useCurrentOccasion";
 
 function OccasionPage() {
-  const { occasionId } = useParams();
   const occasionInCart = false;
-  const { occDate, occName, occasion, occGift } = useCurrentOccasion(
-    occasionId
+  const { occDate, occName, occasion, occGift, occasionId } = useSelector(
+    (state) => state.occasions.currentOccasion
   );
 
   if (occasion) {
