@@ -1,11 +1,9 @@
 import React from "react";
 //Redux
 import { useSelector } from "react-redux";
-//Moment
-import moment from "moment";
 //Component
-import { BsTrash } from "react-icons/bs";
 import BtnTemplate from "../components/navbar/BtnTemplate";
+import CartItem from "../components/cart/CartItem";
 //Firestore
 import { useFirestore } from "react-redux-firebase";
 //Router
@@ -37,37 +35,12 @@ function CartPage() {
           {currentCart.length > 0 ? (
             currentCart.map((item) => {
               return (
-                <div
-                  className="cart-item-container"
+                <CartItem
                   key={currentCart.indexOf(item)}
-                >
-                  <img
-                    className="cart-item-img"
-                    src={item.card.url}
-                    alt="card name"
-                  ></img>
-                  <div className="cart-item-text">
-                    <h4>{item.card.cardName}</h4>
-                    <h6>
-                      For {item.currentOccasion.occName}'s{" "}
-                      {item.currentOccasion.occasion}
-                    </h6>
-                    <h6>
-                      This item will be sent on{" "}
-                      {moment(item.currentOccasion.occDate.toDate()).format(
-                        "LL"
-                      )}
-                      {""}
-                    </h6>
-                    <h6>to jnicolon@gmail.com</h6>
-                  </div>
-                  <div
-                    onClick={() => deleteItem(currentCart.indexOf(item))}
-                    className="cart-item-delete"
-                  >
-                    <BsTrash className="navbar-icon"></BsTrash>
-                  </div>
-                </div>
+                  item={item}
+                  currentCart={currentCart}
+                  deleteItem={deleteItem}
+                />
               );
             })
           ) : (
