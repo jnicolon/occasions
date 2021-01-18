@@ -1,87 +1,24 @@
 import React from "react";
-import { useState, useEffect } from "react";
+//Redux
 import { useSelector } from "react-redux";
+//Moment
 import moment from "moment";
+//Component
 import { BsTrash } from "react-icons/bs";
-import { useFirestore } from "react-redux-firebase";
 import BtnTemplate from "../components/navbar/BtnTemplate";
+//Firestore
+import { useFirestore } from "react-redux-firebase";
+//Router
 import { Link } from "react-router-dom";
-
 //Hooks
 import useGetCart from "../hooks/useGetCart";
+//Function
+import handleClickCartPage from "../functions/handleClickCartPage";
 
 function CartPage() {
   const currentCart = useGetCart();
-
   const userId = useSelector((state) => state.firebase.auth.uid);
   const firestore = useFirestore();
-
-  const updateOccasionGiftStatus = async () => {
-    //Change gift status of occasions to true
-    let giftOccasions = [];
-    currentCart.forEach((element) => {
-      giftOccasions.push(element.currentOccasion.occasionId);
-    });
-
-    giftOccasions.forEach((element) => {
-      firestore
-        .collection("occasions")
-        .doc(userId)
-        .collection("userOccasions")
-        .doc(element)
-        .update({
-          occGift: true,
-        });
-    });
-
-    //Empty the cart after clicking
-    firestore.collection("cart").doc(userId).set({
-      cart: [],
-    });
-
-    //update the scheduled occasions
-    let tempScheduledOccasions = await firestore
-      .collection("scheduledOccasions")
-      .doc(userId)
-      .get()
-      .then((doc) => {
-        if (doc.exists) {
-          return doc.data();
-        } else {
-          return [];
-        }
-      });
-
-    let currentUserInfo = await firestore
-      .collection("users")
-      .doc(userId)
-      .get()
-      .then((doc) => {
-        if (doc.exists) {
-          return { currentUserInfo: doc.data() };
-        } else return [];
-      });
-
-    let oldScheduledOccasions;
-    if (tempScheduledOccasions.scheduledOccasionsInfo) {
-      oldScheduledOccasions = tempScheduledOccasions.scheduledOccasionsInfo;
-    } else {
-      oldScheduledOccasions = [];
-    }
-
-    let newScheduledOccasions = [...oldScheduledOccasions, ...currentCart];
-    let finalScheduledOccasions = [];
-
-    newScheduledOccasions.forEach((occ) => {
-      finalScheduledOccasions.push({ ...occ, ...currentUserInfo });
-    });
-
-    firestore
-      .collection("scheduledOccasions")
-      .doc(userId)
-      .set({ scheduledOccasionsInfo: finalScheduledOccasions })
-      .then(console.log("scheduled occasions set!"));
-  };
 
   const deleteItem = (target) => {
     const tempCurrentCart = [...currentCart];
@@ -140,7 +77,9 @@ function CartPage() {
         <div className="cart-page-btn-container">
           {currentCart.length > 0 && (
             <BtnTemplate
-              onClick={updateOccasionGiftStatus}
+              onClick={() =>
+                handleClickCartPage(currentCart, userId, firestore)
+              }
               text={
                 currentCart.length === 1
                   ? "Schedule this gift"

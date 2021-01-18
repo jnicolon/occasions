@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 //Router
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, Redirect } from "react-router-dom";
 //State
 import { useSelector } from "react-redux";
 //Components
@@ -25,6 +25,16 @@ function SingleCardPage() {
   const allCards = useCardList();
   const card = allCards.filter((card) => card.cardId === cardId)[0];
 
+  //Use this for people going back from the cart without passing through userhome
+  const [itemAlreadyInCart, setItemAlreadyInCart] = useState(false);
+  useEffect(() => {
+    cart.forEach((cartItem) => {
+      if (currentOccasion.occasionId === cartItem.currentOccasion.occasionId) {
+        setItemAlreadyInCart(true);
+      }
+    });
+  }, [cart, currentOccasion]);
+
   const addToCart = (item) => {
     firestore
       .collection("cart")
@@ -35,6 +45,7 @@ function SingleCardPage() {
   if (card) {
     return (
       <div className="single-card-page-container">
+        {itemAlreadyInCart && <Redirect to="/userhome" />}
         {occName && (
           <div className="gift-page-title">
             <h1>{`${occName}'s ${occasion}`}</h1>

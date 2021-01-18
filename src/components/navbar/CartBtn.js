@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 //Component
 import { AiOutlineShoppingCart } from "react-icons/ai";
 //Router
