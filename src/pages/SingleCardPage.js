@@ -25,6 +25,14 @@ function SingleCardPage() {
   const allCards = useCardList();
   const card = allCards.filter((card) => card.cardId === cardId)[0];
 
+  //Redirect for when people hit refresh and state in redux is reset.
+  const [redirect, setRedirect] = useState(false);
+  useEffect(() => {
+    if (occName === undefined) {
+      setRedirect(true);
+    }
+  }, [occName]);
+
   //Use this for people going back from the cart without passing through userhome
   const [itemAlreadyInCart, setItemAlreadyInCart] = useState(false);
   useEffect(() => {
@@ -46,6 +54,7 @@ function SingleCardPage() {
     return (
       <div className="single-card-page-container">
         {itemAlreadyInCart && <Redirect to="/userhome" />}
+        {redirect && <Redirect to="/userhome" />}
         {occName && (
           <div className="gift-page-title">
             <h1>{`${occName}'s ${occasion}`}</h1>
