@@ -2,7 +2,7 @@
   margin-top: 20px;
   padding: 10px;
   background-color: $near-white;
-  width: 50vw;
+  width: $container-width;
   @include flex-column-center;
   justify-content: space-around;
 }
@@ -23,7 +23,7 @@
     color: $dark-grey;
     background-color: $secondary;
     padding: 10px;
-    width: 50vw;
+    width: $container-width;
     margin-top: 20px;
   }
 }

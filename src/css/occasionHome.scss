@@ -8,7 +8,7 @@
 .occ-upNext-container {
   padding: 10px;
   height: 200px;
-  width: 50vw;
+  width: $container-width;
   background-color: $near-white;
   @include flex-column-center;
   transition: all 0.2s;

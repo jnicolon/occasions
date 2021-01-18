@@ -1,5 +1,5 @@
 .occ-list-container {
-  width: 50vw;
+  width: $container-width;
   height: 100px;
   margin-top: 30px;
   @include flex-column-center;

@@ -1,7 +1,7 @@
 .scheduled-page-container {
   position: relative;
   margin-top: 20px;
-  width: 50vw;
+  width: $container-width;
   min-height: 50vh;
   display: flex;
   flex-direction: column;
