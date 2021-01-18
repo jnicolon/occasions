@@ -1,18 +1,33 @@
-import React from "react";
-//Redux
-import { useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
 //Moment
 import moment from "moment";
 //Router
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 //Components
 import BtnTemplate from "../components/navbar/BtnTemplate";
+//Hooks
+import useCurrentOccasion from "../hooks/useCurrentOccasion";
+import useGetCart from "../hooks/useGetCart";
 
 function OccasionPage() {
-  const occasionInCart = false;
-  const { occDate, occName, occasion, occGift, occasionId } = useSelector(
-    (state) => state.occasions.currentOccasion
+  const [occasionInCart, setOccasionInCart] = useState(false);
+  const { occasionId } = useParams();
+  const { occDate, occName, occasion, occGift } = useCurrentOccasion(
+    occasionId
   );
+  const currentCart = useGetCart();
+
+  useEffect(() => {
+    let userCart = [];
+    currentCart.forEach((item) => {
+      if (item.currentOccasion.occasionId === occasionId) {
+        userCart.push(item);
+      }
+    });
+    if (userCart.length > 0) {
+      setOccasionInCart(true);
+    }
+  }, [currentCart, occasionId]);
 
   if (occasion) {
     return (
