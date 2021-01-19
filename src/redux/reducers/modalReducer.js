@@ -2,6 +2,7 @@ import * as actions from "../actions";
 
 const initState = {
   profileBtn: false,
+  unscheduleBtn: false,
 };
 
 const modalReducer = (state = initState, action) => {
@@ -10,7 +11,10 @@ const modalReducer = (state = initState, action) => {
       return {
         profileBtn: action.payload,
       };
-
+    case actions.TOGGLE_UNSCHEDULE_MODAL:
+      return {
+        unscheduleBtn: action.payload,
+      };
     default:
       return state;
   }

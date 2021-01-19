@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from "react";
 //Redux
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 //Router
 import { Link } from "react-router-dom";
 //Component
 import BtnTemplate from "../navbar/BtnTemplate";
 //Hooks
 import useGetScheduledOccasions from "../../hooks/useGetScheduledOccasions";
+//Modal
+import { toggleUnscheduleModal } from "../../redux/actions/modalActions";
 
 function GiftOk({ occasionId, occDate, occEmail }) {
   const userId = useSelector((state) => state.firebase.auth.uid);
   const scheduledOccasions = useGetScheduledOccasions(userId);
   const [currentScheduledOccasion, setCurrentScheduledOccasion] = useState({});
+  const modalStatus = useSelector((state) => state.modal.unscheduleBtn);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     let tempOcc = {};
@@ -23,7 +27,9 @@ function GiftOk({ occasionId, occDate, occEmail }) {
     setCurrentScheduledOccasion(tempOcc);
   }, [scheduledOccasions, occasionId]);
 
-  console.log(currentScheduledOccasion);
+  const toggleModal = (status) => {
+    dispatch(toggleUnscheduleModal(status));
+  };
 
   return (
     <div className="occasion-page-btn-container">
@@ -52,7 +58,35 @@ function GiftOk({ occasionId, occDate, occEmail }) {
           <Link to={`/scheduledpage`}>
             <BtnTemplate text="scheduled occasions page" />
           </Link>
-          <BtnTemplate text="unschedule this card" />
+          <BtnTemplate
+            onClick={() => toggleModal(true)}
+            text="unschedule this card"
+          />
+        </div>
+      </div>
+      <div
+        style={{
+          display: modalStatus ? "block" : "none",
+          opacity: modalStatus ? "1" : "0",
+        }}
+        className="occasion-page-okGift-modal"
+      >
+        <div className="occasion-page-okGift-modal-container">
+          <h1 className="occasion-page-okGift-modal-title">
+            Are you sure you want to unschedule this card?
+          </h1>
+          <div>
+            <BtnTemplate
+              onClick={() => toggleModal(false)}
+              size="sm"
+              text="yes"
+            />
+            <BtnTemplate
+              onClick={() => toggleModal(false)}
+              size="sm"
+              text="no"
+            />
+          </div>
         </div>
       </div>
     </div>
