@@ -1,5 +1,6 @@
 .occasion-page-container {
   margin-top: 20px;
+  margin-bottom: 30px;
   padding: 10px;
   padding-bottom: 30px;
   background-color: $near-white;
@@ -44,6 +45,7 @@
   min-height: 200px;
   @include flex-column-center;
   justify-content: space-around;
+  margin-bottom: 30px;
   h1 {
     font-size: 1.5rem;
     color: $mid-grey;
@@ -51,7 +53,6 @@
   h2 {
     color: $mid-grey;
     font-size: 1.3rem;
-    margin-bottom: 10px;
   }
 }
 

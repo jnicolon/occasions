@@ -9,23 +9,54 @@ import BtnTemplate from "../navbar/BtnTemplate";
 import useGetScheduledOccasions from "../../hooks/useGetScheduledOccasions";
 //Modal
 import { toggleUnscheduleModal } from "../../redux/actions/modalActions";
+//Firestore
+import { useFirestore } from "react-redux-firebase";
 
 function GiftOk({ occasionId, occDate, occEmail }) {
-  const userId = useSelector((state) => state.firebase.auth.uid);
-  const scheduledOccasions = useGetScheduledOccasions(userId);
-  const [currentScheduledOccasion, setCurrentScheduledOccasion] = useState({});
-  const modalStatus = useSelector((state) => state.modal.unscheduleBtn);
+  const firestore = useFirestore();
   const dispatch = useDispatch();
 
+  const [unscheduledOccasions, setUnscheduledOccasions] = useState([]);
+  const [currentScheduledOccasion, setCurrentScheduledOccasion] = useState({});
+
+  const modalStatus = useSelector((state) => state.modal.unscheduleBtn);
+  const userId = useSelector((state) => state.firebase.auth.uid);
+  const scheduledOccasions = useGetScheduledOccasions(userId);
+
   useEffect(() => {
-    let tempOcc = {};
+    let tempUnscheduledOccasions = [];
+    let tempSingleOcc = {};
     scheduledOccasions.forEach((sOcc) => {
       if (occasionId === sOcc.currentOccasion.occasionId) {
-        tempOcc = sOcc;
+        tempSingleOcc = sOcc;
+      } else {
+        tempUnscheduledOccasions.push(sOcc);
       }
     });
-    setCurrentScheduledOccasion(tempOcc);
+    setUnscheduledOccasions(tempUnscheduledOccasions);
+    setCurrentScheduledOccasion(tempSingleOcc);
   }, [scheduledOccasions, occasionId]);
+
+  const unscheduleOccasion = () => {
+    firestore
+      .collection("occasions")
+      .doc(userId)
+      .collection("userOccasions")
+      .doc(occasionId)
+      .update({
+        occGift: false,
+      });
+
+    firestore
+      .collection("scheduledOccasions")
+      .doc(userId)
+      .set({ scheduledOccasionsInfo: unscheduledOccasions })
+      .catch((err) => console.log(err.message));
+
+    toggleModal(false);
+  };
+
+  console.log(scheduledOccasions);
 
   const toggleModal = (status) => {
     dispatch(toggleUnscheduleModal(status));
@@ -76,11 +107,13 @@ function GiftOk({ occasionId, occDate, occEmail }) {
             Are you sure you want to unschedule this card?
           </h1>
           <div>
-            <BtnTemplate
-              onClick={() => toggleModal(false)}
-              size="sm"
-              text="yes"
-            />
+            <Link to="/userhome">
+              <BtnTemplate
+                onClick={() => unscheduleOccasion()}
+                size="sm"
+                text="yes"
+              />
+            </Link>
             <BtnTemplate
               onClick={() => toggleModal(false)}
               size="sm"
