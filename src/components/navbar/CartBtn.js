@@ -1,6 +1,6 @@
 import React from "react";
 //Component
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import { RiCalendarCheckLine } from "react-icons/ri";
 //Router
 import { Link } from "react-router-dom";
 //Hooks
@@ -15,7 +15,7 @@ function CartBtn() {
   return (
     <Link to="/cartpage">
       <span className="nav-cart-icon-container">
-        <AiOutlineShoppingCart className="navbar-icon" />
+        <RiCalendarCheckLine className="navbar-icon" />
         {cart.length && cart.length === 0 ? null : (
           <div className="nav-cart-number">
             <p>{cart.length}</p>

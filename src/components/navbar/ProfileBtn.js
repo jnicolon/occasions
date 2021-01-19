@@ -34,7 +34,7 @@ function ProfileBtn() {
           <h3 className="profile-btn-popup-txt">Scheduled Occasions</h3>
         </Link>
         <Link to="/cartpage">
-          <h3 className="profile-btn-popup-txt">Cart</h3>
+          <h3 className="profile-btn-popup-txt">Scheduler</h3>
         </Link>
         <LogoutBtn />
       </div>

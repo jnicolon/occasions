@@ -74,7 +74,7 @@ function SingleCardPage() {
         <Link to="/cartpage">
           <BtnTemplate
             onClick={() => addToCart({ card, currentOccasion })}
-            text="Add to Cart"
+            text="Send to scheduler"
           />
         </Link>
         <h2>{card.cardName}</h2>

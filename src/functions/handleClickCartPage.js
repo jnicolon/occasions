@@ -12,6 +12,7 @@ const handleClickCartPage = async (currentCart, userId, firestore) => {
       .collection("userOccasions")
       .doc(element)
       .update({
+        scheduledOccasionId: element,
         occGift: true,
       });
   });
@@ -63,8 +64,6 @@ const handleClickCartPage = async (currentCart, userId, firestore) => {
     .doc(userId)
     .set({ scheduledOccasionsInfo: finalScheduledOccasions })
     .then(console.log("scheduled occasions set!"));
-
-  console.log("click");
 };
 
 export default handleClickCartPage;

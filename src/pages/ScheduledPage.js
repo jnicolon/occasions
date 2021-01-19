@@ -1,34 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 //Redux
 import { useSelector } from "react-redux";
-//Firestore
-import { useFirestore } from "react-redux-firebase";
 //Moment
 import moment from "moment";
 //Router
 import { Link } from "react-router-dom";
+//Hooks
+import useGetScheduledOccasions from "../hooks/useGetScheduledOccasions";
 
 function ScheduledPage() {
   const userId = useSelector((state) => state.firebase.auth.uid);
-  const firestore = useFirestore();
-
-  const [scheduledOccasions, setScheduledOccasions] = useState([]);
-
-  useEffect(() => {
-    userId &&
-      firestore
-        .collection("scheduledOccasions")
-        .doc(userId)
-        .get()
-        .then((doc) => {
-          if (doc.exists) {
-            let temp = doc.data();
-            setScheduledOccasions(temp.scheduledOccasionsInfo);
-          } else {
-            console.log("doc doesnt exist");
-          }
-        });
-  }, [firestore, userId]);
+  const scheduledOccasions = useGetScheduledOccasions(userId);
 
   return (
     <div className="scheduled-page-container">

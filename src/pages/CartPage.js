@@ -29,7 +29,9 @@ function CartPage() {
 
   return (
     <div className="cart-page-container">
-      <h1 className="cart-page-title">Your cart</h1>
+      <h1 className="cart-page-title">
+        Review your occasions before scheduling them
+      </h1>
       <div className="cart-page-inner-container">
         <div className="cart-page-items-main-container">
           {currentCart.length > 0 ? (
@@ -44,7 +46,7 @@ function CartPage() {
               );
             })
           ) : (
-            <h3>There are no items in the cart right now.</h3>
+            <h3>There are no items in the scheduler right now.</h3>
           )}
         </div>
         <div className="cart-page-btn-container">
@@ -67,7 +69,7 @@ function CartPage() {
             </Link>
 
             <Link to="/scheduledpage">
-              <p className="cart-page-link">See all scheduled gifts</p>
+              <p className="cart-page-link">See all scheduled cards</p>
             </Link>
           </div>
         </div>
