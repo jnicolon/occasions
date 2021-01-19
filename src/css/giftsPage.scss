@@ -10,6 +10,7 @@
 .gift-page-title {
   border-radius: 20px;
   padding: 30px;
+  padding-top: 10px;
   color: $mid-grey;
   text-align: center;
 
@@ -49,6 +50,7 @@
   transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   position: relative;
   top: 0px;
+  margin-bottom: 50px;
   &:hover {
     position: relative;
     top: -10px;

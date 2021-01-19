@@ -65,7 +65,7 @@ function GiftOk({ occasionId, occDate, occEmail }) {
   return (
     <div className="occasion-page-btn-container">
       <div>
-        <h1 style={{ fontSize: "16px" }}>
+        <h1 style={{ fontSize: "16px", fontFamily: "Lato" }}>
           You already scheduled a card for this occasion.
         </h1>
         {currentScheduledOccasion.card && (
@@ -75,7 +75,7 @@ function GiftOk({ occasionId, occDate, occEmail }) {
               src={currentScheduledOccasion.card.url}
               alt="card name"
             ></img>
-            <div className="occ-page-gitOk-txt-container">
+            <div className="occ-page-giftOk-txt-container">
               <p>Your message:</p>
               <p>{currentScheduledOccasion.card.cardMessage}</p>
             </div>
@@ -83,8 +83,10 @@ function GiftOk({ occasionId, occDate, occEmail }) {
         )}
       </div>
       <div>
-        <h2>This card will be sent on {occDate}</h2>
-        <h2>To {occEmail}</h2>
+        <h3 className="occ-page-giftOk-subtitle">
+          This card will be sent on {occDate}
+        </h3>
+        <h3 className="occ-page-giftOk-subtitle">To {occEmail}</h3>
         <div class="occasion-page-giftOk-btn-container">
           <Link to={`/scheduledpage`}>
             <BtnTemplate text="scheduled occasions page" />
