@@ -63,7 +63,7 @@ function CartPage() {
             />
           )}
 
-          <div style={{ textAlign: "right" }}>
+          <div className="cart-page-link-container">
             <Link to="/">
               <p className="cart-page-link">Return to your occasions list</p>
             </Link>

@@ -71,3 +71,36 @@
     font-size: 1.15rem;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .home-container {
+    height: unset;
+  }
+  .home-intro-container {
+  }
+  .home-title {
+    margin-top: 20px;
+    font-size: 2.5rem;
+  }
+  .home-intro-container {
+    display: flex;
+    @include flex-column-center;
+    padding: 0px 30px 30px 30px;
+    width: 100%;
+  }
+  .home-intro-card-container {
+    height: unset;
+    width: 100%;
+    @include flex-column-center;
+    margin-top: 40px;
+  }
+
+  .home-intro-icon {
+    font-size: 3rem;
+  }
+
+  .home-intro-title {
+    font-size: 1.2rem;
+    margin: 20px;
+  }
+}

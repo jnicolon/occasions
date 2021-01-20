@@ -83,3 +83,9 @@
 .profile-btn-popup-txt:hover {
   background-color: rgb(247, 247, 247);
 }
+
+@media only screen and (max-width: 600px) {
+  .profile-btn-popup {
+    width: 300px;
+  }
+}

@@ -110,3 +110,13 @@
   top: 20px;
   left: 25px;
 }
+
+@media only screen and (max-width: 600px) {
+  .occ-list-container {
+    width: $container-phone-width;
+    padding: 0px;
+  }
+  .occ-list-title-container {
+    padding: 0px;
+  }
+}

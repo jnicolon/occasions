@@ -94,3 +94,43 @@
   border-bottom: 2px solid $primary;
   color: $dark-grey;
 }
+
+.cart-page-link-container {
+  text-align: right;
+}
+
+@media only screen and (max-width: 600px) {
+  .cart-page-container {
+    width: $container-phone-width;
+    padding: 0px;
+  }
+  .cart-page-inner-container {
+    @include flex-column-center;
+    position: relative;
+    padding-top: 0px;
+  }
+
+  .cart-page-title {
+    font-size: 1.1rem;
+    text-align: center;
+    width: 250px;
+  }
+
+  .cart-page-btn-container {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    align-items: center;
+    padding: 10px 0px;
+  }
+
+  .cart-page-items-main-container {
+    position: relative;
+    top: 90px;
+    padding: 0px;
+  }
+
+  .cart-page-link-container {
+    text-align: center;
+  }
+}

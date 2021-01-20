@@ -26,6 +26,7 @@
     padding: 10px;
     width: $container-width;
     margin-top: 20px;
+    text-transform: capitalize;
   }
 }
 
@@ -119,30 +120,51 @@
   font-family: $secondary-font;
 }
 
-// @media screen and (max-width: 600px) {
-//   .gift-page-cards-container {
-//     width: auto;
-//     margin: auto;
-//   }
+@media only screen and (max-width: 600px) {
+  .gift-page-container {
+    margin-top: 20px;
+    padding: 0px;
+    width: $container-phone-width;
+  }
 
-/* .single-card-container {
-      border: none;
-      background-color: var(--background-gray);
-      height: 200px;
+  .gift-page-title {
+    border-radius: 20px;
+    padding: 30px;
+    padding-top: 10px;
+    color: $mid-grey;
+    text-align: center;
+
+    h2 {
+      font-size: 1.3rem;
     }
-  
-    .single-card-container:hover {
-      position: relative;
-      top: 0px;
-      background-color: transparent;
-      border: none;
-      box-shadow: none;
+    h1 {
+      font-size: 2.5rem;
+      padding: 10px;
+      width: $container-phone-width;
+      margin-top: 20px;
     }
-  
-    .single-card-image {
-      width: 100px;
-      height: 150px;
-      margin-bottom: 10px;
-      box-shadow: rgb(202, 202, 202) -0px 0px 10px;
-    } */
-// }
+  }
+  .gift-page-cards-container {
+    width: 100%;
+    height: unset;
+    @include flex-column-center;
+    padding: 0px 20px;
+  }
+
+  .single-card-page-container {
+    width: $container-phone-width;
+    margin-bottom: 20px;
+  }
+
+  .single-card-container {
+    width: 200px;
+    height: 250px;
+    margin: 0px;
+    h5 {
+      font-size: 1.5rem;
+    }
+    h2 {
+      font-size: 1rem;
+    }
+  }
+}

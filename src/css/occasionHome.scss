@@ -2,13 +2,14 @@
   width: 100%;
   height: 100%;
   @include flex-column-center;
-  padding: 30px;
+  padding: 20px 0px;
+  width: $container-width;
 }
 
 .occ-upNext-container {
   padding: 10px;
   height: 200px;
-  width: $container-width;
+  width: 100%;
   background-color: $near-white;
   @include flex-column-center;
   transition: all 0.2s;
@@ -52,11 +53,18 @@
   font-family: $primary-font;
   font-size: 2rem;
   color: $dark-grey;
-  //   background-color: $secondary;
-  //   padding: 5px 10px;
-  //   border-radius: 10px;
 }
 
 .occ-upNext-gift-txt {
   color: $mid-grey;
+}
+
+@media only screen and (max-width: 600px) {
+  .occ-home-container {
+    width: $container-phone-width;
+  }
+
+  .occ-upNext-center {
+    width: 100%;
+  }
 }

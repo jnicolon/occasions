@@ -18,11 +18,14 @@ function OccasionPage() {
   const currentOccasion = useCurrentOccasion(occasionId);
   const { occDate, occName, occasion, occGift, occEmail } = currentOccasion;
   const currentCart = useGetCart();
+  console.log(currentCart);
 
   useEffect(() => {
-    if (currentCart.length > 0) {
-      setOccasionInCart(true);
-    }
+    currentCart.forEach((item) => {
+      if (item.currentOccasion.occasionId === occasionId) {
+        setOccasionInCart(true);
+      }
+    });
   }, [currentCart, occasionId]);
 
   if (occasion) {

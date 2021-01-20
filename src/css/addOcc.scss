@@ -88,3 +88,9 @@
   text-align: center;
   color: $dark-grey;
 }
+
+@media only screen and (max-width: 600px) {
+  .add-occ-container {
+    width: 325px;
+  }
+}

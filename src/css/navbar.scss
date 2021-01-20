@@ -64,3 +64,11 @@
   font-weight: 500;
   @include flex-row-center;
 }
+
+@media only screen and (max-width: 600px) {
+  .navbar-container {
+    width: $container-phone-width;
+    padding: 0px;
+    padding-left: 10px;
+  }
+}

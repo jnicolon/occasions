@@ -13,7 +13,7 @@ function ScheduledPage() {
   const scheduledOccasions = useGetScheduledOccasions(userId);
   const [orderBy, setOrderBy] = useState("occDate");
 
-  const orderArray = (order) => {
+  const orderScheduledArray = (order) => {
     if (order === "occDate") {
       scheduledOccasions.sort((a, b) => {
         return (
@@ -44,7 +44,7 @@ function ScheduledPage() {
       <div className="scheduled-page-btn-container">
         <h2 className="scheduled-page-btn">OrderBy</h2>
         <h1
-          onClick={() => orderArray("occName")}
+          onClick={() => orderScheduledArray("occName")}
           className={
             orderBy === "occName"
               ? "scheduled-page-btn-selected"
@@ -54,7 +54,7 @@ function ScheduledPage() {
           Name
         </h1>
         <h1
-          onClick={() => orderArray("occDate")}
+          onClick={() => orderScheduledArray("occDate")}
           className={
             orderBy === "occDate"
               ? "scheduled-page-btn-selected"
