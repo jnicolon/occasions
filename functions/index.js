@@ -17,13 +17,15 @@ exports.sendScheduledMail = functions.https.onRequest(async (req, res) => {
       const cardUrl = occ.occasion.card.url;
       const cardName = occ.occasion.card.cardName;
       const toEmail = occ.occasion.currentOccasion.occEmail;
+      const occasionMessage = occ.occasion.card.cardMessage;
 
       const email = emailTemplate(
         occasion,
         userFirstName,
         userLastName,
         cardUrl,
-        cardName
+        cardName,
+        occasionMessage
       );
       const msj = await sendMail(toEmail, email).catch((err) =>
         console.log(err)
