@@ -3,17 +3,18 @@ import React from "react";
 import useUpNext from "../../hooks/useUpNext";
 //Icon
 import { BsCalendar } from "react-icons/bs";
+import { MdAddCircleOutline } from "react-icons/md";
 //Moment
 import moment from "moment";
 // //Router
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function UpNext() {
   const upNext = useUpNext();
 
   return (
     <div className="occ-upNext-container">
-      {upNext.occName && (
+      {upNext.occGift ? (
         <>
           <h4 className="occ-upNext-title">Up Next</h4>
           <h2 className="occ-upNext-name">
@@ -28,10 +29,32 @@ function UpNext() {
               </p>
             </div>
           </div>
-
-          <h4 className="occ-upNext-gift-txt">
-            Set up a gift for this occasion.
-          </h4>
+          {!upNext.occGift && (
+            <Link to={`/occasionpage/${upNext.occasionId}`}>
+              <h4 className="occ-upNext-gift-txt">
+                Set up a gift for this occasion.
+              </h4>
+            </Link>
+          )}
+        </>
+      ) : (
+        <>
+          <h4 className="occ-upNext-title">Welcome</h4>
+          <h2 className="occ-upNext-name">Welcome to Occasions</h2>
+          <div className="occ-upNext-center">
+            <div
+              style={{ textAlign: "center" }}
+              className="occ-upNext-left-container"
+            >
+              <h6>Create your first occasion by clicking on the plus icon</h6>
+            </div>
+          </div>
+          <Link to="/addoccasion">
+            <MdAddCircleOutline
+              style={{ fontSize: "40px" }}
+              className="occ-upNext-icon"
+            />
+          </Link>
         </>
       )}
     </div>
