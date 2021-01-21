@@ -27,6 +27,7 @@ import SingleCardPage from "./pages/SingleCardPage";
 import CartPage from "./pages/CartPage";
 import ScheduledPage from "./pages/ScheduledPage";
 import EmailTest from "./pages/EmailTest";
+import NotFound from "./pages/NotFound";
 
 //Modal
 import { toggleProfileModal } from "./redux/actions/modalActions";
@@ -75,6 +76,7 @@ function App() {
             <AuthRoute path="/cartpage" component={CartPage} />
             <AuthRoute path="/scheduledpage" component={ScheduledPage} />
             <AuthRoute path="/emailtest" component={EmailTest} />
+            <Route component={NotFound} />
           </Switch>
         </div>
       </HashRouter>
