@@ -74,6 +74,7 @@ function App() {
             />
             <AuthRoute path="/cartpage" component={CartPage} />
             <AuthRoute path="/scheduledpage" component={ScheduledPage} />
+            <AuthRoute path="/emailtest" component={EmailTest} />
           </Switch>
         </div>
       </HashRouter>

@@ -16,3 +16,26 @@
     text-align: center;
   }
 }
+
+.email-container {
+  padding: 10px;
+  width: $container-width;
+  background-color: $near-white;
+  margin-top: 20px;
+  @include flex-column-center;
+}
+
+.email-txt {
+  text-align: justify;
+  font-size: 1.2rem;
+  width: 500px;
+  color: $mid-grey;
+  margin-top: 10px;
+}
+
+.email-icon {
+  margin: 20px;
+  font-size: 3rem;
+  color: $primary;
+  cursor: pointer;
+}
