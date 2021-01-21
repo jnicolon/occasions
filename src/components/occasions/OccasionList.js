@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 //Components
 import OccasionListBtns from "./OccasionListBtns";
 import OccasionListItem from "./OccasionListItem";
+import EmailSign from "../emailTutorial/EmailSign";
 //State
 import { useDispatch } from "react-redux";
 //Moment
@@ -20,14 +21,14 @@ function OccasionList() {
     dispatch(setCurrentOccasion(""));
   });
 
-  return (
-    <div className="occ-list-container">
-      <div className="occ-list-title-container">
-        <h2>Your upcoming occasions</h2>
-        {userOccasions && <OccasionListBtns setOrderBy={setOrderBy} />}
+  if (userOccasions.length >= 1) {
+    return (
+      <div className="occ-list-container">
+        <div className="occ-list-title-container">
+          <h2>Your upcoming occasions</h2>
+          <OccasionListBtns setOrderBy={setOrderBy} />
 
-        {userOccasions &&
-          userOccasions.map((occasion) => {
+          {userOccasions.map((occasion) => {
             let today = new Date();
             let compare = new Date(moment(occasion.occDate.toDate()).format());
 
@@ -42,9 +43,13 @@ function OccasionList() {
               );
             } else return null;
           })}
+        </div>
+        <EmailSign />
       </div>
-    </div>
-  );
+    );
+  } else {
+    return <div></div>;
+  }
 }
 
 export default OccasionList;

@@ -52,14 +52,13 @@ function AddOccasion() {
         setOccDate(e.target.value);
         if (isDateInPast(occDate)) {
           setDateError(true);
-          console.log(isDateInPast(occDate));
         } else {
           setDateError(false);
         }
         break;
       case "email":
         setOccEmail(e.target.value);
-        console.log(e.target.value);
+
         if (e.target.value.trim().length < 1) {
           setError(true);
         } else {

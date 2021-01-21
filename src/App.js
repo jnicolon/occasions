@@ -26,6 +26,7 @@ import GiftsPage from "./pages/GiftsPage";
 import SingleCardPage from "./pages/SingleCardPage";
 import CartPage from "./pages/CartPage";
 import ScheduledPage from "./pages/ScheduledPage";
+import EmailTest from "./pages/EmailTest";
 
 //Modal
 import { toggleProfileModal } from "./redux/actions/modalActions";

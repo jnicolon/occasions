@@ -84,6 +84,24 @@
   background-color: rgb(247, 247, 247);
 }
 
+.occasion-page-delete-btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  cursor: pointer;
+}
+
+.occasion-page-delete-btn {
+  font-size: 0.9rem;
+  background-color: $near-white;
+  font-family: $secondary-font;
+  font-weight: 600;
+  color: rgb(214, 1, 1);
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 600px) {
   .profile-btn-popup {
     width: 300px;

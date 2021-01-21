@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 //Component
 import BtnTemplate from "../navbar/BtnTemplate";
+import ConfirmationModal from "../occasionPage/ConfirmationModal";
 //Hooks
 import useGetScheduledOccasions from "../../hooks/useGetScheduledOccasions";
 //Modal
@@ -45,7 +46,8 @@ function GiftOk({ occasionId, occDate, occEmail }) {
       .doc(occasionId)
       .update({
         occGift: false,
-      });
+      })
+      .catch((err) => console.log(err.message));
 
     firestore
       .collection("scheduledOccasions")
@@ -55,8 +57,6 @@ function GiftOk({ occasionId, occDate, occEmail }) {
 
     toggleModal(false);
   };
-
-  console.log(scheduledOccasions);
 
   const toggleModal = (status) => {
     dispatch(toggleUnscheduleModal(status));
@@ -97,33 +97,11 @@ function GiftOk({ occasionId, occDate, occEmail }) {
           />
         </div>
       </div>
-      <div
-        style={{
-          display: modalStatus ? "block" : "none",
-          opacity: modalStatus ? "1" : "0",
-        }}
-        className="occasion-page-okGift-modal"
-      >
-        <div className="occasion-page-okGift-modal-container">
-          <h1 className="occasion-page-okGift-modal-title">
-            Are you sure you want to unschedule this card?
-          </h1>
-          <div>
-            <Link to="/userhome">
-              <BtnTemplate
-                onClick={() => unscheduleOccasion()}
-                size="sm"
-                text="yes"
-              />
-            </Link>
-            <BtnTemplate
-              onClick={() => toggleModal(false)}
-              size="sm"
-              text="no"
-            />
-          </div>
-        </div>
-      </div>
+      <ConfirmationModal
+        yesFunction={unscheduleOccasion}
+        noFunction={toggleModal}
+        modalStatus={modalStatus}
+      />
     </div>
   );
 }

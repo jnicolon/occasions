@@ -34,6 +34,7 @@ const handleClickCartPage = async (currentCart, userId, firestore) => {
         return [];
       }
     });
+  console.log(tempScheduledOccasions);
 
   let currentUserInfo = await firestore
     .collection("users")

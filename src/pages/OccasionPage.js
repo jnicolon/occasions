@@ -6,6 +6,7 @@ import GiftNotOk from "../components/occasionPage/GiftNotOk";
 import OccPageTitle from "../components/occasionPage/OccPageTitle";
 import GiftOk from "../components/occasionPage/GiftOk";
 import OccInCart from "../components/occasionPage/OccInCart";
+import DeleteBtn from "../components/occasionPage/DeleteBtn";
 //Hooks
 import useCurrentOccasion from "../hooks/useCurrentOccasion";
 import useGetCart from "../hooks/useGetCart";
@@ -18,7 +19,6 @@ function OccasionPage() {
   const currentOccasion = useCurrentOccasion(occasionId);
   const { occDate, occName, occasion, occGift, occEmail } = currentOccasion;
   const currentCart = useGetCart();
-  console.log(currentCart);
 
   useEffect(() => {
     currentCart.forEach((item) => {
@@ -51,6 +51,7 @@ function OccasionPage() {
             )}
           </div>
         </>
+        <DeleteBtn occasionId={occasionId} />
       </div>
     );
   } else {
