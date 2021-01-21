@@ -125,6 +125,7 @@
     margin-top: 20px;
     padding: 0px;
     width: $container-phone-width;
+    margin-bottom: 30px;
   }
 
   .gift-page-title {
@@ -149,6 +150,7 @@
     height: unset;
     @include flex-column-center;
     padding: 0px 20px;
+    margin-bottom: 30px;
   }
 
   .single-card-page-container {

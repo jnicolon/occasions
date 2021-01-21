@@ -11,10 +11,11 @@ import { Link } from "react-router-dom";
 
 function UpNext() {
   const upNext = useUpNext();
+  console.log(upNext);
 
   return (
     <div className="occ-upNext-container">
-      {upNext.occGift ? (
+      {upNext.occName ? (
         <>
           <h4 className="occ-upNext-title">Up Next</h4>
           <h2 className="occ-upNext-name">

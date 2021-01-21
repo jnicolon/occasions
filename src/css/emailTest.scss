@@ -39,3 +39,9 @@
   color: $primary;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 600px) {
+  .email-sign-container {
+    left: 40%;
+  }
+}

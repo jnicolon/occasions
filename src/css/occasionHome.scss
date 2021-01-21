@@ -53,6 +53,7 @@
   font-family: $primary-font;
   font-size: 2rem;
   color: $dark-grey;
+  text-align: center;
 }
 
 .occ-upNext-gift-txt {
@@ -66,5 +67,9 @@
 
   .occ-upNext-center {
     width: 100%;
+  }
+
+  .occ-upNext-container {
+    height: unset;
   }
 }
