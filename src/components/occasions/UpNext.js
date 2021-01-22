@@ -1,6 +1,7 @@
 import React from "react";
 //Custom Hook
 import useUpNext from "../../hooks/useUpNext";
+import useCurrentOccasion from "../../hooks/useCurrentOccasion";
 //Icon
 import { BsCalendar } from "react-icons/bs";
 import { MdAddCircleOutline } from "react-icons/md";
@@ -8,10 +9,25 @@ import { MdAddCircleOutline } from "react-icons/md";
 import moment from "moment";
 // //Router
 import { Link } from "react-router-dom";
+//Redux
+import { useDispatch } from "react-redux";
+import { setCurrentOccasion } from "../../redux/actions/occasionsActions";
 
 function UpNext() {
   const upNext = useUpNext();
   console.log(upNext);
+
+  const dispatch = useDispatch();
+
+  //The occasion passed here is the one we are mapping.
+  //This way we can track what occasion we are clicking on the list.
+  function onClickOccasion(occasion) {
+    dispatch(setCurrentOccasion(occasion));
+  }
+
+  //We add the date to currentOccasion for cloud functions functionality.
+  const occDateString = Date.parse(upNext);
+  const currentOccasionWithDate = { ...upNext, occDateString };
 
   return (
     <div className="occ-upNext-container">
@@ -32,7 +48,10 @@ function UpNext() {
           </div>
           {!upNext.occGift && (
             <Link to={`/occasionpage/${upNext.occasionId}`}>
-              <h4 className="occ-upNext-gift-txt">
+              <h4
+                onClick={() => onClickOccasion(currentOccasionWithDate)}
+                className="occ-upNext-gift-txt"
+              >
                 Set up a gift for this occasion.
               </h4>
             </Link>
