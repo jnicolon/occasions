@@ -18,7 +18,7 @@ const useUpNext = () => {
       .then((doc) => {
         const tempOcc = [];
         doc.forEach((element) => {
-          tempOcc.push(element.data());
+          tempOcc.push({ ...element.data(), occasionId: element.id });
         });
 
         //Rercursive function to compare the dates of

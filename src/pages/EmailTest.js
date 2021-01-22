@@ -36,13 +36,13 @@ function EmailTest() {
           </h7>
         </div>
       </div>
-      {!isLoading ? (
-        <Link to="/addoccasion">
+      <div>
+        <a href="https://us-central1-thoughtfulv3.cloudfunctions.net/sendScheduledMail">
           <BiMailSend className="email-icon" />
-        </Link>
-      ) : (
+        </a>
+
         <h7 className="email-txt">Loading...</h7>
-      )}
+      </div>
     </div>
   );
 }
