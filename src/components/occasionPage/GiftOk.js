@@ -87,7 +87,7 @@ function GiftOk({ occasionId, occDate, occEmail }) {
           This card will be sent on {occDate}
         </h3>
         <h3 className="occ-page-giftOk-subtitle">To {occEmail}</h3>
-        <div class="occasion-page-giftOk-btn-container">
+        <div className="occasion-page-giftOk-btn-container">
           <Link to={`/scheduledpage`}>
             <BtnTemplate text="scheduled occasions page" />
           </Link>

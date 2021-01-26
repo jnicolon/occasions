@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
+import "firebase/functions";
 
 const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 const AUTH = process.env.REACT_APP_GOOGLE_AUTH_DOMAIN;
@@ -24,5 +25,6 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 firebase.firestore();
+firebase.functions();
 
 export default firebase;

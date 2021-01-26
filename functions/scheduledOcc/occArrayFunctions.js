@@ -9,7 +9,9 @@ const separateOccasionsToArray = (data) => {
 };
 
 const separateTodayOccasionsToArray = (occasions) => {
-  const today = new Date(2021, 1, 1);
+  //In real deployment I would just pass an empty new date
+  //To compare to today's date
+  const today = new Date(2022, 0, 1);
   const todayOccasions = [];
   occasions.forEach((occasion) => {
     const occasionTime = occasion.currentOccasion.occDateString;

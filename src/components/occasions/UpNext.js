@@ -1,7 +1,6 @@
 import React from "react";
 //Custom Hook
 import useUpNext from "../../hooks/useUpNext";
-import useCurrentOccasion from "../../hooks/useCurrentOccasion";
 //Icon
 import { BsCalendar } from "react-icons/bs";
 import { MdAddCircleOutline } from "react-icons/md";
@@ -15,7 +14,6 @@ import { setCurrentOccasion } from "../../redux/actions/occasionsActions";
 
 function UpNext() {
   const upNext = useUpNext();
-  console.log(upNext);
 
   const dispatch = useDispatch();
 

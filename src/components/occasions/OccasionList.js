@@ -44,7 +44,7 @@ function OccasionList() {
             } else return null;
           })}
         </div>
-        {/* <EmailSign /> */}
+        <EmailSign />
       </div>
     );
   } else {
