@@ -71,10 +71,10 @@ function SingleCardPage() {
           </div>
         )}
         <SingleCardPageMiddle handleChange={handleChange} card={card} />
-        <Link to="/cartpage">
+        <Link to="/userhome">
           <BtnTemplate
             onClick={() => addToCart({ card, currentOccasion })}
-            text="Send to scheduler"
+            text="Add to cart"
           />
         </Link>
         <h2>{card.cardName}</h2>

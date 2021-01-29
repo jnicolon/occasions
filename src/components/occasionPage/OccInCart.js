@@ -5,7 +5,7 @@ import BtnTemplate from "../navbar/BtnTemplate";
 function OccInCart() {
   return (
     <div className="occasion-page-btn-container">
-      <h1>There's already a card in the scheduler for this occasion.</h1>
+      <h1>There's already a card in the cart for this occasion.</h1>
       <div className="occasion-page-options">
         <Link to={`/cartpage`}>
           <BtnTemplate text="Go to scheduler page" />
