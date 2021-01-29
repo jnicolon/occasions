@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/occasions/static/css/main.85676dae.chunk.css",
-    "main.js": "/occasions/static/js/main.36207752.chunk.js",
-    "main.js.map": "/occasions/static/js/main.36207752.chunk.js.map",
+    "main.js": "/occasions/static/js/main.80710a70.chunk.js",
+    "main.js.map": "/occasions/static/js/main.80710a70.chunk.js.map",
     "runtime-main.js": "/occasions/static/js/runtime-main.900f6812.js",
     "runtime-main.js.map": "/occasions/static/js/runtime-main.900f6812.js.map",
-    "static/js/2.1fd03cf9.chunk.js": "/occasions/static/js/2.1fd03cf9.chunk.js",
-    "static/js/2.1fd03cf9.chunk.js.map": "/occasions/static/js/2.1fd03cf9.chunk.js.map",
+    "static/js/2.53854a23.chunk.js": "/occasions/static/js/2.53854a23.chunk.js",
+    "static/js/2.53854a23.chunk.js.map": "/occasions/static/js/2.53854a23.chunk.js.map",
     "static/js/3.d8ecf836.chunk.js": "/occasions/static/js/3.d8ecf836.chunk.js",
     "static/js/3.d8ecf836.chunk.js.map": "/occasions/static/js/3.d8ecf836.chunk.js.map",
     "index.html": "/occasions/index.html",
     "static/css/main.85676dae.chunk.css.map": "/occasions/static/css/main.85676dae.chunk.css.map",
-    "static/js/2.1fd03cf9.chunk.js.LICENSE.txt": "/occasions/static/js/2.1fd03cf9.chunk.js.LICENSE.txt"
+    "static/js/2.53854a23.chunk.js.LICENSE.txt": "/occasions/static/js/2.53854a23.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.900f6812.js",
-    "static/js/2.1fd03cf9.chunk.js",
+    "static/js/2.53854a23.chunk.js",
     "static/css/main.85676dae.chunk.css",
-    "static/js/main.36207752.chunk.js"
+    "static/js/main.80710a70.chunk.js"
   ]
 }
