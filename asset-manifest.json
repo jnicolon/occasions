@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/occasions/static/css/main.85676dae.chunk.css",
-    "main.js": "/occasions/static/js/main.80710a70.chunk.js",
-    "main.js.map": "/occasions/static/js/main.80710a70.chunk.js.map",
+    "main.js": "/occasions/static/js/main.b592e906.chunk.js",
+    "main.js.map": "/occasions/static/js/main.b592e906.chunk.js.map",
     "runtime-main.js": "/occasions/static/js/runtime-main.900f6812.js",
     "runtime-main.js.map": "/occasions/static/js/runtime-main.900f6812.js.map",
     "static/js/2.53854a23.chunk.js": "/occasions/static/js/2.53854a23.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.900f6812.js",
     "static/js/2.53854a23.chunk.js",
     "static/css/main.85676dae.chunk.css",
-    "static/js/main.80710a70.chunk.js"
+    "static/js/main.b592e906.chunk.js"
   ]
 }
