@@ -12,7 +12,7 @@ Firebase Cloud Functions to set up back end logic.
             
 Some functionality:
                 
-- Profile creator with firebase authentication and imput
+- Profile creator with firebase authentication and input
 validation done in the front end.
                   
 - Create occasions, choose a card and add it to the cart
